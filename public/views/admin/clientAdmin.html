@@ -1,0 +1,143 @@
+<div class="bootstrap-iso">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="formden_header">
+          <h2>
+      Add New Client
+     </h2>
+          <p>
+          </p>
+        </div>
+        <form method="post">
+          <div class="form-group ">
+            <label class="control-label requiredField" for="clientName1">
+              First Name
+              <span class="asteriskField">
+        *
+       </span>
+            </label>
+            <!-- ////CLIENT FIRST NAME//// -->
+            <input class="form-control" id="clientName1" name="clientName1" type="text" / ng-model="newClient.name1">
+          </div>
+          <div class="form-group ">
+            <label class="control-label requiredField" for="clientName2">
+              Last Name
+              <span class="asteriskField">
+        *
+       </span>
+            </label>
+            <!-- ////CLIENT LAST NAME//// -->
+            <input class="form-control" id="clientName2" name="clientName2" type="text" / ng-model="newClient.name2">
+          </div>
+          <div class="form-group ">
+            <label class="control-label requiredField" for="tel">
+              Telephone #
+              <span class="asteriskField">
+        *
+       </span>
+            </label>
+            <!-- ////CLIENT PHONE NUMBER//// -->
+            <input class="form-control" id="tel" name="tel" type="text" ng-model="newClient.phone" />
+          </div>
+          <div class="form-group ">
+            <label class="control-label " for="email1">
+              Email
+            </label>
+            <!-- ////CLIENT EMAIL//// -->
+            <input class="form-control" id="email1" name="email1" type="text" ng-model="newClient.email" />
+          </div>
+          <div class="form-group">
+            <div>
+              <button class="btn btn-custom btn-lg btn-block" name="submit" type="submit" ng-click="addClient(newClient)">
+                Add Client
+              </button>
+            </div>
+          </div>
+        </form>
+        <div class="form-group ">
+          <label class="control-label " for="email1">
+            Search Clients
+          </label>
+          <input class="form-control" id="email1" name="email1" type="text" ng-model="searchName" />
+        </div>
+        <ul ng-repeat="client in clients | filter: searchName | orderBy: 'firstName'" style="list-style-type:none">
+
+          <li><span class="cName">{{ client.firstName }} {{ client.lastName }}</span></li>
+          <ul style="list-style-type:none">
+            <li><span class="clientLabel"> Phone:</span> {{ client.phone }}</li>
+            <li><span class="clientLabel">Email:</span> {{ client.email }}</li>
+            <li>
+              <button class="btn btn-custom btn-lg btn-block" style="width: 25%; height: 100%; padding: 2px; margin: 5px; color: white;" name="submit" type="submit" ng-click="deleteClient( client._id )">
+                delete
+              </button>
+            </li>
+
+          </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<style>
+  .bootstrap-iso .form-group button,
+  .bootstrap-iso form input.form-control,
+  .bootstrap-iso form textarea.form-control,
+  .bootstrap-iso form select.form-control,
+  .bootstrap-iso form .form-group-lg input.form-control,
+  .bootstrap-iso form .form-group-lg textarea.form-control,
+  .bootstrap-iso form .form-group-lg select.form-control,
+  .bootstrap-iso form .form-group-sm input.form-control,
+  .bootstrap-iso form .form-group-sm textarea.form-control,
+  .bootstrap-iso form .form-group-sm select.form-control {
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+  }
+
+  .bootstrap-iso .formden_header h2,
+  .bootstrap-iso .formden_header p,
+  .bootstrap-iso form {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000000
+  }
+
+  .bootstrap-iso form button,
+  .bootstrap-iso form button:hover {
+    color: white !important;
+  }
+
+  .bootstrap-iso .btn-custom {
+    background: #63717e
+  }
+
+  .bootstrap-iso .btn-custom:hover {
+    background: #4f5d6a;
+  }
+
+  .bootstrap-iso .form-control:focus {
+    border-color: #8fa1b0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(143, 161, 176, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(143, 161, 176, 0.6);
+  }
+
+  .asteriskField {
+    color: red;
+  }
+
+  .bootstrap-iso form .input-group-addon {
+    color: #555555;
+    background-color: #eeeeee;
+    border-radius: 20px;
+    padding-left: 15px
+  }
+</style>

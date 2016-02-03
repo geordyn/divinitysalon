@@ -1,0 +1,362 @@
+header {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+}
+a {
+  font-weight: lighter;
+  text-decoration: none;
+  color: white;
+  font-size: 2em;
+  padding: 10px;
+  text-shadow: 0px 7px 14px rgba(150, 150, 150, 0.84);
+  /*-webkit-text-stroke: 1px #FFFFFF;*/
+  -webkit-text-fill-color: #000000
+}
+footer {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  position: fixed;
+}
+.tmplCont {
+  width: 100%;
+  margin: auto;
+  /*border: 1px solid white;*/
+  background: transparent;
+}
+.tmplCont p {
+  margin: auto;
+  font-size: 1.5em;
+  width: 100%;
+}
+
+/*HOME PAGE*/
+
+.homeCont {
+  width: 100%;
+  height: 85vh;
+  margin: auto;
+  text-align: center;
+  /*border: 1px solid white;*/
+}
+.imgLeft {
+  float: left;
+  margin-right: 10px;
+}
+.logoCont {
+  padding-top: 3%;
+}
+.homeLogo {
+  margin: auto;
+}
+
+/*ABOUT PAGE*/
+
+.about {
+  background: transparent;
+  margin: auto;
+  width: 100%;
+  /*border: 1px dashed white;*/
+}
+.aboutUs {
+  width: 35%;
+  text-align: left;
+  margin-left: 25px;
+  padding: 25px;
+  color: white;
+  font-size: 1.5rem;
+  line-height: 2.3rem;
+  /* reduce size to remove gap between text */
+}
+.aboutUs span {
+  text-align: left;
+  background-color: #666;
+  padding: 0.2rem 0;
+  -webkit-box-shadow: 0.2rem 0px 0px #666, -0.5rem 0px 0px #666;
+  box-shadow: 0.2rem 0px 0px #666, -0.2rem 0px 0px #666;
+  box-decoration-break: clone;
+}
+.aboutUs h1 {
+  text-align: left;
+  font-size: 3em;
+  font-style: italic;
+  text-shadow: 0px 7px 14px rgba(150, 150, 150, 0.84);
+}
+
+/* SERVICE */
+
+.servicesCont {
+  /*float: left;*/
+  width: 35%;
+  text-align: left;
+  margin-left: 25px;
+  padding: 25px;
+  color: #fff7cd;
+  font-size: 1.5rem;
+  line-height: 2.8rem;
+  /* reduce size to remove gap between text */
+}
+.servicesCont span {
+  font-size: 1.3em;
+  text-align: left;
+  background-color: #4e4b4b;
+  padding: 0.2rem 0;
+  -webkit-box-shadow: 0.2rem 0px 0px #4e4b4b, -0.5rem 0px 0px #4e4b4b;
+  box-shadow: 0.2rem 0px 0px #4e4b4b, -0.2rem 0px 0px #4e4b4b;
+  box-decoration-break: clone;
+}
+.servicesCont h1 {
+  text-align: left;
+  font-size: 3em;
+  font-style: italic;
+  font-weight: bold;
+  text-shadow: 0px 7px 14px rgba(37, 36, 36, 0.77);
+}
+.services {
+  float: right;
+  margin-right: -8%;
+  width: 80%;
+  text-align: center;
+  margin-left: 25px;
+  padding: 25px;
+  color: #fff7cd;
+  font-size: 1.5rem;
+  line-height: 2.8rem;
+  /* reduce size to remove gap between text */
+}
+.services span {
+  font-size: 1.3em;
+  background-color: #4e4b4b;
+  padding: 0.2rem 0;
+  -webkit-box-shadow: 0.2rem 0px 0px #4e4b4b, -0.5rem 0px 0px #4e4b4b;
+  box-shadow: 0.2rem 0px 0px #4e4b4b, -0.2rem 0px 0px #4e4b4b;
+  box-decoration-break: clone;
+}
+.services h1 {
+  text-align: center;
+  margin-bottom: 1%;
+  font-size: 3em;
+  font-style: italic;
+  font-weight: bold;
+  text-shadow: 0px 7px 14px rgba(37, 36, 36, 0.77);
+}
+.services h2 {
+  text-align: center;
+}
+.serviceScroll {
+  padding: 8%;
+  margin: auto;
+  height: 150px;
+  width: 100%;
+  word-wrap: break-word;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background-color: rgba(28, 27, 27, 0.57);
+  -webkit-box-shadow: 3px 23px 49px -13px rgba(0,0,0,0.57);
+  -moz-box-shadow: 3px 23px 49px -13px rgba(0,0,0,0.57);
+  box-shadow: 3px 23px 49px -13px rgba(0,0,0,0.57);
+}
+.serviceScroll p {
+  font-size: 1em;
+}
+
+/* LOGIN */
+
+.loginCont {
+  height: 100vh;
+  width: 100%;
+  /*background-color: lightgray;*/
+}
+.login {
+  padding: 50px;
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  /*background-color: lightgray;*/
+}
+.inputs {
+  margin: auto;
+  width: 50%;
+  text-align: center;
+}
+
+/* TEAM */
+
+.teamCont {
+  margin: auto;
+  width: 50%;
+  padding: 15px;
+  background-color: rgba(103, 70, 96, 0.9);
+  -webkit-border-radius: 10px;
+  border: 0.5px solid rgba(103, 70, 96, 0.9);
+}
+.teamImg {
+  float: left;
+  margin-right: 10px;
+}
+.inputs {
+  -webkit-border-radius: 10px;
+  border: 0.5px solid black;
+  padding: 10px;
+}
+
+/* PRODUCTS */
+
+.productCont {
+  margin: auto;
+  width: 50%;
+}
+.productImg {
+  float: left;
+  margin-right: 10px;
+}
+
+.product {
+
+}
+
+/* CONTACT */
+
+.contactCont {
+  margin: auto;
+  width: 50%;
+  padding: 50px;
+}
+.days, .hours {
+  margin: auto;
+  display: inline-block;
+  margin-right: 10px;
+  line-height: 2rem;
+  font-size: 1.5em;
+}
+.contactTxt {
+  margin-top: 30px;
+  font-size: 1.2em;
+}
+
+/* ADMIN PAGES BEGIN HEREEEEEEEEEEEEEEEEEEE */
+
+
+
+/*CLIENT ADMIN*/
+
+.clientLabel {
+  font-weight: bold;
+}
+
+.cName {
+  font-size: 2em;
+}
+
+
+/*PRODUCT ADMIN*/
+.productScroll {
+  margin: auto;
+  width: 70%;
+  height: 350px;
+  overflow-y: scroll;
+  margin-bottom: 100px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+  width: 18px;
+}
+::-webkit-scrollbar-button:vertical:increment {
+  background-color: rgb(196, 196, 196);
+}
+::-webkit-scrollbar-button:vertical:increment:hover {
+  background-color: rgb(114, 114, 114);
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgb(196, 196, 196);
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(196, 196, 196);
+}
+::-webkit-scrollbar-track {
+  background-color: rgb(237, 237, 237);
+}
+::-webkit-scrollbar-button:vertical:decrement {
+  background-color: rgb(196, 196, 196);
+}
+::-webkit-scrollbar-button:vertical:decrement:hover {
+  background-color: rgb(114, 114, 114);
+}
+
+/* End Scrollbar */
+
+#video-background {
+  /*  making the video fullscreen  */
+  position: fixed;
+  right: 0;
+  top: -140px;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+}
+#team-background {
+  /*  making the video fullscreen  */
+  position: fixed;
+  right: 0;
+  top: -220px;
+  bottom: 0;
+  width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+}
+#about-background {
+  /*  making the video fullscreen  */
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+}
