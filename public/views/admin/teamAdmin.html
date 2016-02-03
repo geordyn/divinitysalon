@@ -2,81 +2,142 @@
 
 
   <div class="bootstrap-iso">
-   <div class="container-fluid">
-    <div class="row">
-     <div class="col-md-6 col-sm-6 col-xs-12">
-      <div class="formden_header">
-       <h2>
+    <div class="container-fluid">
+      <div class="row" style="padding: 20px; margin: auto;">
+          <div class="formden_header">
+            <h2>
         New Team Member
        </h2>
-       <p>
-       </p>
+            <p>
+            </p>
+          </div>
+
+          <form>
+
+            <div class="form-group ">
+              <label class="control-label requiredField" for="photoUrl">
+                Photo URL
+                <span class="asteriskField">
+          *
+         </span>
+              </label>
+<!-- NEW MEMBER PHOTO URL -->
+              <input class="form-control" id="photoUrl" ng-model="newMember.img" name="photoUrl" type="text" />
+            </div>
+
+            <div class="form-group ">
+              <label class="control-label requiredField" for="name2">
+                Name
+                <span class="asteriskField">
+          *
+         </span>
+              </label>
+<!-- NEW MEMBER NAME -->
+
+              <input class="form-control" id="name2" ng-model="newMember.name" name="name2" type="text" />
+            </div>
+
+            <div class="form-group ">
+              <label class="control-label requiredField" for="teamBio">
+                Bio
+                <span class="asteriskField">
+          *
+         </span>
+              </label>
+<!-- NEW MEMBER BIO -->
+
+              <textarea class="form-control" cols="40" id="teamBio" ng-model="newMember.bio" name="teamBio" rows="10"></textarea>
+            </div>
+
+
+            <div class="form-group">
+              <div>
+<!-- SUBMIT -->
+                <button class="btn btn-custom btn-lg btn-block" name="submit" type="submit" ng-click="addMember( newMember )">
+                  Add Member
+                </button>
+              </div>
+            </div>
+
+          </form>
+        </div>
       </div>
-      <form method="post">
-       <div class="form-group ">
-        <label class="control-label requiredField" for="photoUrl">
-         Photo URL
-         <span class="asteriskField">
-          *
-         </span>
-        </label>
-        <input class="form-control" id="photoUrl" name="photoUrl" type="text"/>
-       </div>
-       <div class="form-group ">
-        <label class="control-label requiredField" for="name2">
-         Name
-         <span class="asteriskField">
-          *
-         </span>
-        </label>
-        <input class="form-control" id="name2" name="name2" type="text"/>
-       </div>
-       <div class="form-group ">
-        <label class="control-label requiredField" for="teamBio">
-         Bio
-         <span class="asteriskField">
-          *
-         </span>
-        </label>
-        <textarea class="form-control" cols="40" id="teamBio" name="teamBio" rows="10"></textarea>
-       </div>
-       <div class="form-group" id="div_servicesCheck">
-        <label class="control-label " for="servicesCheck">
-         Services Provided
-        </label>
-        <div class=" ">
-         <label class="checkbox-inline">
-          <input name="servicesCheck" type="checkbox" value="Hair Care"/>
-          Hair Care
-         </label>
-         <label class="checkbox-inline">
-          <input name="servicesCheck" type="checkbox" value="Nail Care"/>
-          Nail Care
-         </label>
-         <label class="checkbox-inline">
-          <input name="servicesCheck" type="checkbox" value="Skin Care"/>
-          Skin Care
-         </label>
-        </div>
-       </div>
-       <div class="form-group">
-        <div>
-         <button class="btn btn-custom btn-lg btn-block" name="submit" type="submit">
-          Add Member
-         </button>
-        </div>
-       </div>
-      </form>
-     </div>
-    </div>
-   </div>
   </div>
 
 
-<div class="clientList">
-  <center>List of Team Members that can be edited individually.</center>
-</div>
+  <center>
+    <div class="clientList" ng-repeat="member in team" style="display: inline-block; max-width: 100vw; word-wrap: break-word; padding: 20px;">
+
+    <div class="clientDiv">
+
+      <img ng-src="{{ member.img }}" height="200px" width="210px" style="margin: 5px">
+
+      <center>
+        <button class="btn btn-custom btn-lg btn-block" style="width: 30%; height: 100%; padding: 2px; margin: 5px;" name="submit" type="submit" ng-click="deleteMember( member._id )">
+          delete
+        </button>
+        <button class="btn btn-custom btn-lg btn-block" style="width: 30%; height: 100%; padding: 2px; margin: 5px;" name="submit" type="submit" ng-click="">
+          edit
+        </button>
+      </center>
+
+    </div>
+
+  </div>
+</center>
 
 
 
-<style>.bootstrap-iso .form-group button, .bootstrap-iso form input.form-control, .bootstrap-iso form textarea.form-control, .bootstrap-iso form select.form-control, .bootstrap-iso form .form-group-lg input.form-control, .bootstrap-iso form .form-group-lg textarea.form-control, .bootstrap-iso form .form-group-lg select.form-control, .bootstrap-iso form .form-group-sm input.form-control, .bootstrap-iso form .form-group-sm textarea.form-control, .bootstrap-iso form .form-group-sm select.form-control{-webkit-border-radius: 20px;-moz-border-radius: 20px; border-radius: 20px;}.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: #000000}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .bootstrap-iso .btn-custom{background: #63717e} .bootstrap-iso .btn-custom:hover{background: #4f5d6a;}.bootstrap-iso .form-control:focus { border-color: #8fa1b0;  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(143, 161, 176, 0.6); box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(143, 161, 176, 0.6);} .asteriskField{color: red;}.bootstrap-iso form .input-group-addon {color:#555555; background-color: #eeeeee; border-radius: 20px; padding-left:15px}</style>
+  <style>
+    .bootstrap-iso .form-group button,
+    .bootstrap-iso form input.form-control,
+    .bootstrap-iso form textarea.form-control,
+    .bootstrap-iso form select.form-control,
+    .bootstrap-iso form .form-group-lg input.form-control,
+    .bootstrap-iso form .form-group-lg textarea.form-control,
+    .bootstrap-iso form .form-group-lg select.form-control,
+    .bootstrap-iso form .form-group-sm input.form-control,
+    .bootstrap-iso form .form-group-sm textarea.form-control,
+    .bootstrap-iso form .form-group-sm select.form-control {
+      -webkit-border-radius: 20px;
+      -moz-border-radius: 20px;
+      border-radius: 20px;
+    }
+
+    .bootstrap-iso .formden_header h2,
+    .bootstrap-iso .formden_header p,
+    .bootstrap-iso form {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #000000
+    }
+
+    .bootstrap-iso form button,
+    .bootstrap-iso form button:hover {
+      color: white !important;
+    }
+
+    .bootstrap-iso .btn-custom {
+      background: #63717e
+    }
+
+    .bootstrap-iso .btn-custom:hover {
+      background: #4f5d6a;
+    }
+
+    .bootstrap-iso .form-control:focus {
+      border-color: #8fa1b0;
+      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(143, 161, 176, 0.6);
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(143, 161, 176, 0.6);
+    }
+
+    .asteriskField {
+      color: red;
+    }
+
+    .bootstrap-iso form .input-group-addon {
+      color: #555555;
+      background-color: #eeeeee;
+      border-radius: 20px;
+      padding-left: 15px
+    }
+  </style>

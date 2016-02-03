@@ -70,7 +70,7 @@ $stateProvider
   .state('teamAdmin', {
     url: '/teamAdmin',
     templateUrl: '/views/admin/teamAdmin.html',
-    controller: 'teamCtrl'
+    controller: 'teamAdminCtrl'
   });
   $urlRouterProvider.otherwise('/');
 
