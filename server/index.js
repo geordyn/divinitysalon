@@ -3,10 +3,11 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var cors = require('cors');
-var passport = require('passport');
 var session = require('express-session');
 
+
 //////files///////
+var passport = require('./services/passport.js');
 var productCtrl = require('./controllers/productCtrl.js');
 var teamCtrl = require('./controllers/teamCtrl.js');
 var userCtrl = require('./controllers/userCtrl.js');
@@ -25,6 +26,10 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + "/../public"));
 
 
+app.use(passport.initialize());
+app.use(passport.session());
+
+
 
 var mongoUri = 'mongodb://localhost:27017/serverproject';
 mongoose.connect(mongoUri); //default port number to connect to mongoose
@@ -38,7 +43,15 @@ mongoose.connection.once('open', function(){
 
 //////////////Endpoints///////////////
 
+//user//
+app.post('/api/user', userCtrl.addUser); //makes new user
+app.get('/api/user', userCtrl.getUser); //
 
+//login//
+app.post('/api/login', passport.authenticate( 'local-auth', {
+  successRedirect: '/'
+  }
+));
 
 //products//
 app.post('/api/productAdmin', productCtrl.create); //posts new product
@@ -59,13 +72,11 @@ app.put('/api/clientAdmin/:id', clientCtrl.update); //updates individual client 
 app.delete('/api/clientAdmin/:id', clientCtrl.remove); //deletes individual client
 
 //appointments//
-app.post('/api/aptAdmin', appointmentCtrl.addAppt); //posts new appointments
+app.post('/api/aptAdmin', userCtrl.isAuth, appointmentCtrl.addAppt); //posts new appointments
 app.get('/api/aptAdmin', appointmentCtrl.retreive); //gets all appointments
 app.put('/api/aptAdmin/:id', appointmentCtrl.update); //updates individual apt info
 app.delete('/api/aptAdmin/:id', appointmentCtrl.remove); //deletes individual apt
 
-// app.get('/api/aptAdmin', appointmentCtrl.getTodayAppt); //gets overview of todays appts
-// app.get('/api/aptAdmin', appointmentCtrl.get1Appt); //gets single appt via query
 
 
 

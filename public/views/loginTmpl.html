@@ -20,9 +20,12 @@
           <i class="fa fa-child">
           </i>
          </div>
-         <input class="form-control" id="username" name="username" type="text"/>
+<!-- USERNAME INPUT -->
+
+         <input class="form-control" id="username" name="username" type="text" ng-model="username"/>
         </div>
        </div>
+
        <div class="form-group ">
         <label class="control-label " for="password">
          Password
@@ -32,15 +35,20 @@
           <i class="fa fa-lock">
           </i>
          </div>
-         <input class="form-control" id="password" name="password" type="text"/>
+<!-- USERNAME PASSWORD -->
+
+         <input class="form-control" id="password" name="password" type="text" ng-model="password"/>
         </div>
        </div>
+
        <div class="form-group">
         <div>
-         <button class="btn btn-custom btn-lg btn-block" name="submit" type="submit">
+         <button ng-click="loginUser( username, password )" class="btn btn-custom btn-lg btn-block" name="submit" type="submit">
           Login
          </button>
         </div>
+
+
        </div>
       </form>
      </div>

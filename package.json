@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.3.0",
     "body-parser": "^1.14.2",
     "cors": "^2.7.1",
     "desandro-classie": "^1.0.1",
