@@ -11,65 +11,55 @@
         </div>
 
         <form>
-          <div class="form-group ">
-            <label class="control-label " for="clientName">
-              Client Name
-            </label>
-            <!-- CLIENT FIND NAME DROPDOWN -->
-
-            <div class="input-group">
-              <div class="input-group-addon">
-                <i class="fa fa-calendar-plus-o">
-                </i>
-                <!-- WHEN CLICK ON <i> POPUP OF ADD NEW CLIENT FORM COMES UP -->
-              </div>
-              <input class="form-control" id="clientName" name="clientName" type="text" />
-            </div>
-
-          </div>
+          <!-- CLIENT FIND NAME DROPDOWN -->
 
           <div class="form-group ">
-            <label class="control-label requiredField" for="password">
-              Employee Name
-              <span class="asteriskField">
-        *
-       </span>
+            <label class="control-label " for="selClient">
+              Client
             </label>
-            <!-- EMPLOYEE/STYLIST NAME DROPDOWN -->
-
-            <input class="form-control" id="clientName" name="password" type="text" />
+            <select class="select form-control" ng-repeat="client in clients" id="selClient" name="selClient">
+              <option value="First Choice">
+                {{client.firstName}} {{client.lastName}}
+              </option>
+            </select>
           </div>
 
+          <!-- INSERT ADD CLIENT BUTTON FOR MODAL TO POP UP FOR UNSAVED CLIENTS -->
+
+          <!-- EMPLOYEE/STYLIST NAME DROPDOWN -->
+
+          <div class="form-group ">
+            <label class="control-label " for="selClient">
+              Employee
+            </label>
+            <select class="select form-control" ng-repeat="member in team" id="selClient" name="selClient">
+              <option value="First Choice">
+                {{member.name}}
+              </option>
+            </select>
+          </div>
+
+          <!-- SERVICES -->
           <div class="form-group ">
             <label class="control-label requiredField" for="subject1">
               Service(s)
-              <span class="asteriskField">
-        *
-       </span>
+              <span class="asteriskField">*</span>
             </label>
-            <!-- SERVICES -->
 
             <input class="form-control" id="subject1" name="subject1" type="text" ng-model="newAppt.services" />
           </div>
 
+          <!-- DATE -->
           <div class="form-group ">
-            <label class="control-label requiredField" for="aptDate">
+            <label class="control-label requiredField" for="subject1">
               Date
-              <span class="asteriskField">
-        *
-       </span>
+              <span class="asteriskField">*</span>
             </label>
-            <!-- DATE -->
 
-            <div class="input-group">
-              <div class="input-group-addon">
-                <i class="fa fa-calendar-plus-o">
-        </i>
-              </div>
-              <input class="form-control" id="aptDate" name="aptDate" placeholder="MM/DD/YYYY" type="text" />
-            </div>
+            <input class="form-control" id="subject1" name="subject1" type="text" ng-model="newAppt.services" />
           </div>
 
+          <!-- START TIME -->
           <div class="form-group ">
             <label class="control-label requiredField" for="select">
               Start Time
@@ -77,78 +67,15 @@
          *
         </span>
             </label>
-            <!-- START TIME -->
 
             <select class="select form-control" id="select" name="select">
-              <option value="8am">
-                8am
-              </option>
-              <option value="8:30am">
-                8:30am
-              </option>
-              <option value="9am">
-                9am
-              </option>
-              <option value="10am">
-                10am
-              </option>
-              <option value="10:30am">
-                10:30am
-              </option>
-              <option value="11am">
-                11am
-              </option>
-              <option value="11:30am">
-                11:30am
-              </option>
-              <option value="12pm">
-                12pm
-              </option>
-              <option value="12:30pm">
-                12:30pm
-              </option>
-              <option value="1pm">
-                1pm
-              </option>
-              <option value="1:30pm">
-                1:30pm
-              </option>
-              <option value="2pm">
-                2pm
-              </option>
-              <option value="2:30pm">
-                2:30pm
-              </option>
-              <option value="3pm">
-                3pm
-              </option>
-              <option value="3:30pm">
-                3:30pm
-              </option>
-              <option value="4pm">
-                4pm
-              </option>
-              <option value="4:30pm">
-                4:30pm
-              </option>
-              <option value="5pm">
-                5pm
-              </option>
-              <option value="5:30pm">
-                5:30pm
-              </option>
-              <option value="6pm">
-                6pm
-              </option>
-              <option value="6:30pm">
-                6:30pm
-              </option>
-              <option value="7pm">
-                7pm
+              <option ng-repeat="time in times">
+                {{time.display}}
               </option>
             </select>
           </div>
 
+          <!-- END TIME -->
           <div class="form-group ">
             <label class="control-label requiredField" for="select1">
               End Time
@@ -156,74 +83,10 @@
          *
         </span>
             </label>
-            <!-- END TIME -->
 
             <select class="select form-control" id="select1" name="select1">
-              <option value="8am">
-                8am
-              </option>
-              <option value="8:30am">
-                8:30am
-              </option>
-              <option value="9am">
-                9am
-              </option>
-              <option value="10am">
-                10am
-              </option>
-              <option value="10:30am">
-                10:30am
-              </option>
-              <option value="11am">
-                11am
-              </option>
-              <option value="11:30am">
-                11:30am
-              </option>
-              <option value="12pm">
-                12pm
-              </option>
-              <option value="12:30pm">
-                12:30pm
-              </option>
-              <option value="1pm">
-                1pm
-              </option>
-              <option value="1:30pm">
-                1:30pm
-              </option>
-              <option value="2pm">
-                2pm
-              </option>
-              <option value="2:30pm">
-                2:30pm
-              </option>
-              <option value="3pm">
-                3pm
-              </option>
-              <option value="3:30pm">
-                3:30pm
-              </option>
-              <option value="4pm">
-                4pm
-              </option>
-              <option value="4:30pm">
-                4:30pm
-              </option>
-              <option value="5pm">
-                5pm
-              </option>
-              <option value="5:30pm">
-                5:30pm
-              </option>
-              <option value="6pm">
-                6pm
-              </option>
-              <option value="6:30pm">
-                6:30pm
-              </option>
-              <option value="7pm">
-                7pm
+              <option ng-repeat="time in times">
+                {{ time.display }}
               </option>
             </select>
           </div>
