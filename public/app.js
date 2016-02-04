@@ -50,23 +50,72 @@ $stateProvider
   .state('overviewAdmin', {
     url: '/overviewAdmin',
     templateUrl: '/views/admin/overviewAdmin.html',
-    controller: 'overviewCtrl'
+    controller: 'overviewCtrl',
+    resolve: {
+      user: function($state, loginService){
+        return loginService.getCurrentUser()
+        .then( function(res){
+          if(res.status != 200){
+            console.log('brack');
+            $state.go('home');
+
+          } else {
+            return res.data;
+          }
+        }, function(err){
+          console.log('brack');
+          $state.go('home');
+
+        });
+      }
+    }
   })
+
   .state('scheduleAdmin', {
     url: '/scheduleAdmin',
     templateUrl: '/views/admin/scheduleAdmin.html',
-    controller: 'scheduleCtrl'
+    controller: 'scheduleCtrl',
+    resolve: {
+      user: function($state, loginService){
+        return loginService.getCurrentUser()
+        .then( function(res){
+          if(res.status != 200){
+            $state.go('home');
+
+          } else {
+            return res.data;
+          }
+        });
+      }
+    }
+
   })
+
   .state('clientAdmin', {
     url: '/clientAdmin',
     templateUrl: '/views/admin/clientAdmin.html',
-    controller: 'clientCtrl'
+    controller: 'clientCtrl',
+    resolve: {
+      user: function($state, loginService){
+        return loginService.getCurrentUser()
+        .then( function(res){
+          if(res.status != 200){
+            $state.go('home');
+
+          } else {
+            return res.data;
+          }
+        });
+      }
+    }
   })
+
   .state('productAdmin', {
     url: '/productAdmin',
     templateUrl: '/views/admin/productAdmin.html',
     controller: 'productAdminCtrl'
   })
+
   .state('teamAdmin', {
     url: '/teamAdmin',
     templateUrl: '/views/admin/teamAdmin.html',

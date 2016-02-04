@@ -25,7 +25,11 @@ var port = 2222;
 app.use(bodyParser.json());
 app.use(express.static(__dirname + "/../public"));
 
-
+app.use(session({
+    secret: 'ultimate-bro-jan-sucks-for-real-but-is-kewl-af',
+    resave: true,
+    saveUninitialized: true
+  }));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -46,10 +50,13 @@ mongoose.connection.once('open', function(){
 //user//
 app.post('/api/user', userCtrl.addUser); //makes new user
 app.get('/api/user', userCtrl.getUser); //
+app.get('/api/getCurrentUser', userCtrl.getCurrentUser);
+//current user , goes to user controller, res.send(req.user) sends back current user
+    //call endpoint in resolve
 
 //login//
 app.post('/api/login', passport.authenticate( 'local-auth', {
-  successRedirect: '/'
+  successRedirect: '/api/getCurrentUser'
   }
 ));
 

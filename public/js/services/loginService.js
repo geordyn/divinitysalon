@@ -19,7 +19,14 @@ angular.module('app')
     }, function(err){alert('Login Failed');});
   };
 
-
+  this.getCurrentUser = function(){
+    return $http({
+      method: 'GET',
+      url: '/api/getCurrentUser'
+    }).then( function(res){
+      return res;
+    });
+  };
 
 
 

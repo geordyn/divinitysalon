@@ -12,6 +12,16 @@ module.exports = {
 		});
 	},
 
+
+  getCurrentUser: function(req, res) {
+    if(req.user){
+      res.status(200).send(req.user);
+    } else {
+      res.status(403).send('forbidden');
+    }
+	},
+
+
   getUser: function(req, res) {
 		User.findById( req.query.id, function(err, user) {
 			if (err) {
@@ -28,10 +38,7 @@ module.exports = {
   } else {
     res.status(403).send('Not Permitted');
   }
-},
-
-  auth: function(req, res) {
-    res.send(req.user);
 }
+
 
 };
