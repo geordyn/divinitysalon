@@ -1,0 +1,62 @@
+body {
+
+  padding: 0;
+  font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+  font-size: 14px;
+}
+
+#calendar {
+  max-width: 900px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.fc-day {
+  border: 0px;
+}
+.fc-day-header{
+  background-color: #fff7cd;
+}
+
+#calendar .fc-toolbar {
+  background-color: white;
+  padding: 5px;
+  border: 3px solid #fff7cd;
+  margin-bottom: 0px;
+}
+
+#calendar td .fc-past {
+  background-color: #afdefa;
+}
+#calendar td .fc-future {
+  background-color: #afdefa;
+}
+
+#calendar td .fc-today {
+  background-color: white;
+}
+
+.fc-content {
+  height: 30px;
+  width: 100%;
+  word-wrap: break-word;
+}
+
+td .fc-widget-content {
+  background-color: transparent;
+}
+
+////////////buttons///////////
+/*
+.btn {
+  margin: 50px;
+}
+
+
+
+.buttonsCont {
+  display: inline-block;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+}*/

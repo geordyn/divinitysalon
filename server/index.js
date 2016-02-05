@@ -61,28 +61,28 @@ app.post('/api/login', passport.authenticate( 'local-auth', {
 ));
 
 //products//
-app.post('/api/productAdmin', userCtrl.isAuth, productCtrl.create); //posts new product
+app.post('/api/productAdmin', productCtrl.create); //posts new product
 app.get('/api/products', productCtrl.retreive); //gets all products
-app.put('/api/productAdmin/:id', userCtrl.isAuth, productCtrl.update); //updates individual product
-app.delete('/api/productAdmin/:id', userCtrl.isAuth, productCtrl.remove); //deletes individual product
+app.put('/api/productAdmin/:id', productCtrl.update); //updates individual product
+app.delete('/api/productAdmin/:id', productCtrl.remove); //deletes individual product
 
 //team//
-app.post('/api/teamAdmin', userCtrl.isAuth, teamCtrl.create); //posts new team member (stylist)
+app.post('/api/teamAdmin', teamCtrl.create); //posts new team member (stylist)
 app.get('/api/team', teamCtrl.retreive); //gets all team members
-app.put('/api/teamAdmin/:id', userCtrl.isAuth, teamCtrl.update); //updates individual team member
-app.delete('/api/teamAdmin/:id', userCtrl.isAuth, teamCtrl.remove); //deletes individual team member
+app.put('/api/teamAdmin/:id', teamCtrl.update); //updates individual team member
+app.delete('/api/teamAdmin/:id', teamCtrl.remove); //deletes individual team member
 
 //client//
-app.post('/api/clientAdmin', userCtrl.isAuth, clientCtrl.create); //posts new client
-app.get('/api/clientAdmin', userCtrl.isAuth, clientCtrl.retreive); //gets all clients
-app.put('/api/clientAdmin/:id', userCtrl.isAuth, clientCtrl.update); //updates individual client info
-app.delete('/api/clientAdmin/:id', userCtrl.isAuth, clientCtrl.remove); //deletes individual client
+app.post('/api/clientAdmin', clientCtrl.create); //posts new client
+app.get('/api/clientAdmin', clientCtrl.retreive); //gets all clients
+app.put('/api/clientAdmin/:id', clientCtrl.update); //updates individual client info
+app.delete('/api/clientAdmin/:id', clientCtrl.remove); //deletes individual client
 
 //appointments//
-app.post('/api/aptAdmin', userCtrl.isAuth, appointmentCtrl.addAppt); //posts new appointments
+app.post('/api/aptAdmin', appointmentCtrl.addAppt); //posts new appointments
 app.get('/api/aptAdmin', appointmentCtrl.retreive); //gets all appointments
-app.put('/api/aptAdmin/:id', userCtrl.isAuth, appointmentCtrl.update); //updates individual apt info
-app.delete('/api/aptAdmin/:id', userCtrl.isAuth, appointmentCtrl.remove); //deletes individual apt
+app.put('/api/aptAdmin/:id', appointmentCtrl.update); //updates individual apt info
+app.delete('/api/aptAdmin/:id', appointmentCtrl.remove); //deletes individual apt
 
 
 

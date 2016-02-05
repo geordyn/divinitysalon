@@ -1,7 +1,23 @@
-angular.module('app').controller('calendarCtrl', function($scope){
+angular.module('app').controller('calendarCtrl', function($scope, appointmentService) {
+
+  var events = [];
+
+  $scope.getAppointments = function() {
+    appointmentService.getAppointments()
+      .then(function(res) {
+        console.log(res);
+        var events = res;
+        console.log(events);
+        $("#calendar").fullCalendar('removeEvents');
+        $("#calendar").fullCalendar('addEventSource', events);
+        $("#calendar").fullCalendar('rerenderEvents');
+      });
+  };
 
 
   $(function() { // document ready
+
+    $scope.getAppointments();
 
     $('#calendar').fullCalendar({
       header: {
@@ -14,69 +30,50 @@ angular.module('app').controller('calendarCtrl', function($scope){
       selectable: true,
       nowIndicator: true,
       editable: true,
+      theme: true,
       eventLimit: true, // allow "more" link when too many events
-      events: [
-        {
-          title: 'All Day Event',
-          start: '2016-02-01'
-        },
-        {
-          title: 'Long Event',
-          start: '2016-02-07',
-          end: '2016-02-10'
-        },
-        {
-          id: 999,
-          title: 'Repeating Event',
-          start: '2016-02-09T16:00:00',
+      eventRender: function( events, element, view ) {
+        console.log(events.teamMember);
+        if(events.teamMember === '56afd06c332d6aec1e06df67') {
+          //Angie Rosinski//
+          console.log('if so');
+          element.css('background-color', 'rgb(228, 54, 126)');
+          element.css('border', 'rgb(228, 54, 126)');
 
-        },
-        {
-          id: 999,
-          title: 'Repeating Event',
-          start: '2016-02-16T16:00:00'
-        },
-        {
-          title: 'Conference',
-          start: '2016-02-02',
-          end: '2016-02-13'
-        },
-        {
-          title: 'Meeting',
-          start: '2016-02-02T10:30:00',
-          end: '2016-02-02T12:30:00'
-        },
-        {
-          title: 'Lunch',
-          start: '2016-02-12T12:00:00'
-        },
-        {
-          title: 'Meeting',
-          start: '2016-02-12T14:30:00'
-        },
-        {
-          title: 'Happy Hour',
-          start: '2016-02-12T17:30:00'
-        },
-        {
-          title: 'Dinner',
-          start: '2016-02-12T20:00:00'
-        },
-        {
-          title: 'Birthday Party',
-          start: '2016-02-13T07:00:00',
-          end: '2016-02-13T11:00:00',
-          description: 'hello'
-        },
-        {
-          title: 'Click for Google',
-          url: 'http://google.com/',
-          start: '2016-02-28'
         }
-      ]
+        if(events.teamMember === '56afd0dc332d6aec1e06df68') {
+          //Ariana Thiem//
+          console.log('if so');
+          element.css('background-color', 'rgb(67, 216, 231)');
+          element.css('border', 'rgb(67, 216, 231)');
+
+        }
+      },
+      events:
+          [
+            {
+              title: 'HEY',
+              start: '2016-02-01'
+            },
+          {
+            title: 'Long Event',
+            start: '2016-02-07',
+            end: '2016-02-10'
+          },
+          {
+            id: 999,
+            title: 'Repeating Event',
+            start: '2016-02-09T16:00:00',
+
+          }
+        ]
     });
 
+
+
   });
+
+
 
 
 

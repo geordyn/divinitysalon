@@ -1,6 +1,17 @@
 angular.module('app')
 .service('appointmentService', function($http){
 
+
+this.getAppointments = function () {
+  return $http({
+      method: 'GET',
+      url: '/api/aptAdmin'
+  }).then(function (res) {
+      return res.data;
+  });
+};
+
+
   this.getClients = function () {
       return $http({
           method: 'GET',

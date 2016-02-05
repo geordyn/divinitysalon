@@ -11,7 +11,7 @@ angular.module('app', ['ui.router'])
       controller: 'mainCtrl',
     })
     .state('calendar', {
-      url: '/',
+      url: '/calendar',
       templateUrl: '/views/calendarTmpl.html',
       controller: 'calendarCtrl'
     })
@@ -56,6 +56,7 @@ angular.module('app', ['ui.router'])
           .then(function(res) {
             if (res.status != 200) {
               console.log('brack');
+              alert('Unauthorized');
               $state.go('home');
 
             } else {
@@ -63,6 +64,7 @@ angular.module('app', ['ui.router'])
             }
           }, function(err) {
             console.log('brack');
+            alert('Unauthorized');
             $state.go('home');
 
           });
@@ -79,15 +81,21 @@ angular.module('app', ['ui.router'])
         return loginService.getCurrentUser()
           .then(function(res) {
             if (res.status != 200) {
+              console.log('brack');
+              alert('Unauthorized');
               $state.go('home');
 
             } else {
               return res.data;
             }
+          }, function(err) {
+            console.log('brack');
+            alert('Unauthorized');
+            $state.go('home');
+
           });
       }
     }
-
   })
 
   .state('clientAdmin', {
@@ -99,11 +107,18 @@ angular.module('app', ['ui.router'])
         return loginService.getCurrentUser()
           .then(function(res) {
             if (res.status != 200) {
+              console.log('brack');
+              alert('Unauthorized');
               $state.go('home');
 
             } else {
               return res.data;
             }
+          }, function(err) {
+            console.log('brack');
+            alert('Unauthorized');
+            $state.go('home');
+
           });
       }
     }
@@ -119,6 +134,7 @@ angular.module('app', ['ui.router'])
           .then(function(res) {
             if (res.status != 200) {
               console.log('brack');
+              alert('Unauthorized');
               $state.go('home');
 
             } else {
@@ -126,6 +142,7 @@ angular.module('app', ['ui.router'])
             }
           }, function(err) {
             console.log('brack');
+            alert('Unauthorized');
             $state.go('home');
 
           });
@@ -143,6 +160,7 @@ angular.module('app', ['ui.router'])
           .then(function(res) {
             if (res.status != 200) {
               console.log('brack');
+              alert('Unauthorized');
               $state.go('home');
 
             } else {
@@ -150,6 +168,7 @@ angular.module('app', ['ui.router'])
             }
           }, function(err) {
             console.log('brack');
+            alert('Unauthorized');
             $state.go('home');
 
           });
