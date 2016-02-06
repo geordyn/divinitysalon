@@ -15,7 +15,7 @@ module.exports = {
   },
 
   retreive: function(req, res) {
-    Appointment.find().populate('patient')
+    Appointment.find()
       .exec()
       .then(function(appointment, err) {
         if (err) {
@@ -26,7 +26,19 @@ module.exports = {
       });
   },
 
-	update: function(req, res){
+  getMemberApts: function(req, res) {
+    Appointment.find({teamMember: req.params.id})
+    .exec()
+    .then(function(appointment, err){
+      if(err) {
+        return console.error(err);
+      } else {
+        res.send(appointment);
+      }
+    });
+  },
+
+	update: function(req, res) {
 		Appointment.findByIdAndUpdate(req.params.id, {$set: req.body}, function(err, result){
 			if(err){
 				res.status(500).send(err);

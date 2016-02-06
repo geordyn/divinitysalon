@@ -1,6 +1,14 @@
 angular.module('app')
-.service('appointmentService', function($http){
+.service('calendarService', function($http){
 
+  this.getTeam = function () {
+    return $http({
+      method: 'GET',
+      url: '/api/team'
+    }).then(function (res) {
+      return res.data;
+    });
+  };
 
 this.getAppointments = function () {
   return $http({
@@ -11,6 +19,15 @@ this.getAppointments = function () {
   });
 };
 
+  this.getMemberApts = function (memberId) {
+    return $http({
+      method: 'GET',
+      url: '/api/getMemberApts/' + memberId
+    }).then(function (res){
+      return res.data;
+    });
+
+};
 
   this.getClients = function () {
       return $http({

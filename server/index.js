@@ -59,6 +59,11 @@ app.post('/api/login', passport.authenticate( 'local-auth', {
   successRedirect: '/api/getCurrentUser'
   }
 ));
+//logout//
+app.get('/api/logout', function(req, res, next) {
+  req.logout();
+  return res.status(200).send("logged out");
+});
 
 //products//
 app.post('/api/productAdmin', productCtrl.create); //posts new product
@@ -83,6 +88,7 @@ app.post('/api/aptAdmin', appointmentCtrl.addAppt); //posts new appointments
 app.get('/api/aptAdmin', appointmentCtrl.retreive); //gets all appointments
 app.put('/api/aptAdmin/:id', appointmentCtrl.update); //updates individual apt info
 app.delete('/api/aptAdmin/:id', appointmentCtrl.remove); //deletes individual apt
+app.get('/api/getMemberApts/:id', appointmentCtrl.getMemberApts);
 
 
 

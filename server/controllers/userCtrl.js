@@ -32,6 +32,11 @@ module.exports = {
 		});
 	},
 
+	logout: function(req, res) {
+        req.logout();
+        res.redirect('/');
+    },
+
   isAuth: function(req,res, next) {
   if(req.user) {
     next();

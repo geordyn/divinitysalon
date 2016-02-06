@@ -10,11 +10,6 @@ angular.module('app', ['ui.router'])
       templateUrl: '/views/homeTmpl.html',
       controller: 'mainCtrl',
     })
-    .state('calendar', {
-      url: '/calendar',
-      templateUrl: '/views/calendarTmpl.html',
-      controller: 'calendarCtrl'
-    })
     .state('about', {
       url: '/about',
       templateUrl: '/views/aboutTmpl.html',
@@ -46,36 +41,12 @@ angular.module('app', ['ui.router'])
       controller: 'loginCtrl'
     })
 
-  ///////ADMIN VIEWS///////
-  .state('overviewAdmin', {
-    url: '/overviewAdmin',
-    templateUrl: '/views/admin/overviewAdmin.html',
-    resolve: {
-      user: function($state, loginService) {
-        return loginService.getCurrentUser()
-          .then(function(res) {
-            if (res.status != 200) {
-              console.log('brack');
-              alert('Unauthorized');
-              $state.go('home');
-
-            } else {
-              return res.data;
-            }
-          }, function(err) {
-            console.log('brack');
-            alert('Unauthorized');
-            $state.go('home');
-
-          });
-      }
-    }
-  })
+  ///////ADMIN VIEWS/////
 
   .state('scheduleAdmin', {
     url: '/scheduleAdmin',
     templateUrl: '/views/admin/scheduleAdmin.html',
-    controller: 'appointmentCtrl',
+    controller: 'scheduleAdminCtrl',
     resolve: {
       user: function($state, loginService) {
         return loginService.getCurrentUser()

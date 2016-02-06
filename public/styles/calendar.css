@@ -22,3 +22,7 @@ body {
     font-size: 0.5em;
 
 }
+
+hr .fc-divider {
+    display: none;
+  }

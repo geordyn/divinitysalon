@@ -1,4 +1,190 @@
-<div class="bootstrap-iso">
+<div class="outer" style="max-width: 80%; padding: 10px; margin: auto;">
+
+
+  <div class="getButtons">
+
+
+    <center>
+        <div class="buttonsCont" style="padding:1%; margin: 1%; display: inline-block; width: 600px; text-align: left;">
+
+        <!-- Trigger the modal with a button -->
+        <center><button class="btn btn-custom btn-lg" data-toggle="modal" data-target="#myModal" style="width: 12% padding: 0px; margin: 5px; font-size: 1em;">Add Appointment</button>
+        <button ng-click="getAppointments()" class="btn btn-custom btn-lg" style="font-size: 1em;">
+          All Appointments
+        </button>
+        <br/>
+        <div class="buttonsCont" style="display: inline-block;" ng-repeat="member in team">
+
+          <button ng-click="getMemberApts( member._id )" class="btn btn-custom btn-lg" style="width: 12% padding: 0px; margin: 5px; font-size: 1em;">
+            {{member.name}}
+          </button>
+          </center>
+            </div>
+
+    </div>
+  </center>
+    <center>
+      <div style="background-color: lightgray; padding: 1%; width: 600px; max-height: 80vh; overflow-y: scroll;">
+
+        <br/>
+
+        <div id='calendar'></div>
+
+
+      </div>
+    </center>
+  </div>
+
+
+  <!-- ADD APPT Modal -->
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+
+          <div class="bootstrap-iso">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <div class="formden_header">
+                    <h2>
+                New Appointment
+               </h2>
+                    <p>
+                    </p>
+                  </div>
+
+                  <form>
+                    <!-- CLIENT FIND NAME DROPDOWN -->
+
+                    <div class="form-group ">
+                      <label class="control-label " for="selClient">
+                        Client
+                      </label>
+                      <select class="select form-control" ng-repeat="client in clients" id="selClient" name="selClient">
+                        <option value="First Choice">
+                          {{client.firstName}} {{client.lastName}}
+                        </option>
+                      </select>
+                    </div>
+
+                    <!-- INSERT ADD CLIENT BUTTON FOR MODAL TO POP UP FOR UNSAVED CLIENTS -->
+
+                    <!-- EMPLOYEE/STYLIST NAME DROPDOWN -->
+
+                    <div class="form-group ">
+                      <label class="control-label " for="selClient">
+                        Employee
+                      </label>
+                      <select class="select form-control" ng-repeat="member in team" id="selClient" name="selClient">
+                        <option value="First Choice">
+                          {{member.name}}
+                        </option>
+                      </select>
+                    </div>
+
+                    <!-- SERVICES -->
+                    <div class="form-group ">
+                      <label class="control-label requiredField" for="subject1">
+                        Service(s)
+                        <span class="asteriskField">*</span>
+                      </label>
+
+                      <input class="form-control" id="subject1" name="subject1" type="text" ng-model="newAppt.services" />
+                    </div>
+
+                    <!-- DATE -->
+                    <div class="form-group ">
+                      <label class="control-label requiredField" for="subject1">
+                        Date
+                        <span class="asteriskField">*</span>
+                      </label>
+
+                      <input class="form-control" id="subject1" name="subject1" type="text" ng-model="newAppt.services" />
+                    </div>
+
+                    <!-- START TIME -->
+                    <div class="form-group ">
+                      <label class="control-label requiredField" for="select">
+                        Start Time
+                        <span class="asteriskField">
+                   *
+                  </span>
+                      </label>
+
+                      <select class="select form-control" id="select" name="select">
+                        <option ng-repeat="time in times">
+                          {{time.display}}
+                        </option>
+                      </select>
+                    </div>
+
+                    <!-- END TIME -->
+                    <div class="form-group ">
+                      <label class="control-label requiredField" for="select1">
+                        End Time
+                        <span class="asteriskField">
+                   *
+                  </span>
+                      </label>
+
+                      <select class="select form-control" id="select1" name="select1">
+                        <option ng-repeat="time in times">
+                          {{ time.display }}
+                        </option>
+                      </select>
+                    </div>
+
+                    <div class="form-group ">
+                      <label class="control-label " for="aptMessage">
+                        Additional Notes
+                      </label>
+                      <!-- ADDITIONAL NOTES TO STYLIST -->
+
+                      <textarea class="form-control" cols="40" id="aptMessage" name="aptMessage" rows="10"></textarea>
+                    </div>
+
+                    <!-- SUBMIT APPT -->
+                    <div class="form-group">
+                      <div>
+                        <button class="btn btn-custom btn-lg btn-block" name="submit" type="submit">
+                          Add Appointment
+                        </button>
+
+
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+<!-- <div class="bootstrap-iso">
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-6 col-sm-6 col-xs-12">
@@ -10,10 +196,10 @@
           </p>
         </div>
 
-        <form>
+        <form> -->
           <!-- CLIENT FIND NAME DROPDOWN -->
 
-          <div class="form-group ">
+          <!-- <div class="form-group ">
             <label class="control-label " for="selClient">
               Client
             </label>
@@ -22,13 +208,13 @@
                 {{client.firstName}} {{client.lastName}}
               </option>
             </select>
-          </div>
+          </div> -->
 
           <!-- INSERT ADD CLIENT BUTTON FOR MODAL TO POP UP FOR UNSAVED CLIENTS -->
 
           <!-- EMPLOYEE/STYLIST NAME DROPDOWN -->
 
-          <div class="form-group ">
+          <!-- <div class="form-group ">
             <label class="control-label " for="selClient">
               Employee
             </label>
@@ -37,30 +223,30 @@
                 {{member.name}}
               </option>
             </select>
-          </div>
+          </div> -->
 
           <!-- SERVICES -->
-          <div class="form-group ">
+          <!-- <div class="form-group ">
             <label class="control-label requiredField" for="subject1">
               Service(s)
               <span class="asteriskField">*</span>
             </label>
 
             <input class="form-control" id="subject1" name="subject1" type="text" ng-model="newAppt.services" />
-          </div>
+          </div> -->
 
           <!-- DATE -->
-          <div class="form-group ">
+          <!-- <div class="form-group ">
             <label class="control-label requiredField" for="subject1">
               Date
               <span class="asteriskField">*</span>
             </label>
 
             <input class="form-control" id="subject1" name="subject1" type="text" ng-model="newAppt.services" />
-          </div>
+          </div> -->
 
           <!-- START TIME -->
-          <div class="form-group ">
+          <!-- <div class="form-group ">
             <label class="control-label requiredField" for="select">
               Start Time
               <span class="asteriskField">
@@ -73,10 +259,10 @@
                 {{time.display}}
               </option>
             </select>
-          </div>
+          </div> -->
 
           <!-- END TIME -->
-          <div class="form-group ">
+          <!-- <div class="form-group ">
             <label class="control-label requiredField" for="select1">
               End Time
               <span class="asteriskField">
@@ -94,14 +280,14 @@
           <div class="form-group ">
             <label class="control-label " for="aptMessage">
               Additional Notes
-            </label>
+            </label> -->
             <!-- ADDITIONAL NOTES TO STYLIST -->
 
-            <textarea class="form-control" cols="40" id="aptMessage" name="aptMessage" rows="10"></textarea>
-          </div>
+            <!-- <textarea class="form-control" cols="40" id="aptMessage" name="aptMessage" rows="10"></textarea>
+          </div> -->
 
           <!-- SUBMIT APPT -->
-          <div class="form-group">
+          <!-- <div class="form-group">
             <div>
               <button class="btn btn-custom btn-lg btn-block" name="submit" type="submit">
                 Add Appointment
@@ -114,7 +300,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 
 
