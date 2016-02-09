@@ -1,9 +1,51 @@
-<div class="newProdForm" style="margin: auto; width: 100%;">
+
+<button class="btn btn-custom btn-lg" data-toggle="modal" data-target="#newProdModal" style="width: 12% padding: 0px; margin: 5px; font-size: 1em;">
+  Add New Product</button>
+
+
+<div class="productScroll">
+    <h3>Current Products</h3>
+
+  <div class="product" ng-repeat="product in products">
+
+  <center><img ng-src="{{ product.img }}" height="200px" width="200px" style="margin: 0px;"></center>
+
+  <h2 style="text-align: center; margin: 0px;">{{ product.brand }}</h2>
+
+    <center><button class="btn btn-custom btn-lg btn-block" style="width: 25%; height: 100%; padding: 2px; margin: 5px;" name="submit" type="submit" ng-click="deleteProd( product._id )">
+      delete
+    </button></center>
+
+<!-- NEEDS MODAL TO POP UP FOR EDIT SUBMIT -->
+    <!-- <center><button class="btn btn-custom btn-lg btn-block" style="width: 25%; height: 100%; padding: 2px; margin: 5px;" name="submit" type="submit" ng-click="editProduct( editProduct, product._id )" data-dismiss="modal">
+      Edit
+    </button></center> -->
+
+  <p>
+
+  {{ product.description }}
+
+  </p>
+
+</div>
+</div>
+
+
+
+
+
+
+
+<!-- ////////ADD PROD MODAL -->
+
+<div id="newProdModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <div class="newProdForm" style="margin: auto; width: 100%;">
 
 
 <div class="bootstrap-iso" style="margin: auto; padding: 20px; width: 50%;">
  <div class="container-fluid">
-  <div class="row" style="text-align: center;">
     <div class="formden_header">
      <h2>
       New Product
@@ -38,44 +80,20 @@
      </div>
      <div class="form-group">
       <div>
-       <button class="btn btn-custom btn-lg btn-block" name="submit" type="submit" ng-click="addProduct(newProduct)">
+       <button class="btn btn-custom btn-lg btn-block" name="submit" type="submit" ng-click="addProduct(newProduct)" data-dismiss="modal">
         Add Product
        </button>
       </div>
      </div>
     </form>
    </div>
- </div>
 </div>
 <!-- new prod form div ends below -->
 </div>
 
-
-
-<div class="productScroll">
-    <h3>Current Products</h3>
-
-  <div class="product" ng-repeat="product in products">
-
-  <center><img ng-src="{{ product.img }}" height="200px" width="200px" style="margin: 0px;"></center>
-
-  <h2 style="text-align: center; margin: 0px;">{{ product.brand }}</h2>
-
-    <center><button class="btn btn-custom btn-lg btn-block" style="width: 25%; height: 100%; padding: 2px; margin: 5px;" name="submit" type="submit" ng-click="deleteProd( product._id )">
-      delete
-    </button></center>
-
-<!-- NEEDS MODAL TO POP UP FOR EDIT SUBMIT -->
-    <center><button class="btn btn-custom btn-lg btn-block" style="width: 25%; height: 100%; padding: 2px; margin: 5px;" name="submit" type="submit" ng-click="editProduct( editProduct, product._id )">
-      Submit Edit
-    </button></center>
-
-  <p>
-
-  {{ product.description }}
-
-  </p>
-
+</div>
 </div>
 
-<style>.bootstrap-iso .form-group button, .bootstrap-iso form input.form-control, .bootstrap-iso form textarea.form-control, .bootstrap-iso form select.form-control, .bootstrap-iso form .form-group-lg input.form-control, .bootstrap-iso form .form-group-lg textarea.form-control, .bootstrap-iso form .form-group-lg select.form-control, .bootstrap-iso form .form-group-sm input.form-control, .bootstrap-iso form .form-group-sm textarea.form-control, .bootstrap-iso form .form-group-sm select.form-control{-webkit-border-radius: 20px;-moz-border-radius: 20px; border-radius: 20px;}.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: #000000}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .bootstrap-iso .btn-custom{background: #63717e} .bootstrap-iso .btn-custom:hover{background: #4f5d6a;}.bootstrap-iso .form-control:focus { border-color: #8fa1b0;  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(143, 161, 176, 0.6); box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(143, 161, 176, 0.6);} .asteriskField{color: red;}.bootstrap-iso form .input-group-addon {color:#555555; background-color: #eeeeee; border-radius: 20px; padding-left:15px}</style>
+
+
+<!-- <style>.bootstrap-iso .form-group button, .bootstrap-iso form input.form-control, .bootstrap-iso form textarea.form-control, .bootstrap-iso form select.form-control, .bootstrap-iso form .form-group-lg input.form-control, .bootstrap-iso form .form-group-lg textarea.form-control, .bootstrap-iso form .form-group-lg select.form-control, .bootstrap-iso form .form-group-sm input.form-control, .bootstrap-iso form .form-group-sm textarea.form-control, .bootstrap-iso form .form-group-sm select.form-control{-webkit-border-radius: 20px;-moz-border-radius: 20px; border-radius: 20px;}.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: #000000}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .bootstrap-iso .btn-custom{background: #63717e} .bootstrap-iso .btn-custom:hover{background: #4f5d6a;}.bootstrap-iso .form-control:focus { border-color: #8fa1b0;  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(143, 161, 176, 0.6); box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(143, 161, 176, 0.6);} .asteriskField{color: red;}.bootstrap-iso form .input-group-addon {color:#555555; background-color: #eeeeee; border-radius: 20px; padding-left:15px}</style> -->

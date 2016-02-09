@@ -3,8 +3,6 @@ var LocalStrategy = require('passport-local').Strategy;
 
 var User = require('../models/user.js');
 
-console.log(User);
-
 passport.use('local-auth', new LocalStrategy(function (username, password, done) {
 
     User.findOne({
