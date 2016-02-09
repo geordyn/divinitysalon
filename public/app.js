@@ -46,105 +46,105 @@ angular.module('app', ['ui.router'])
   .state('scheduleAdmin', {
     url: '/scheduleAdmin',
     templateUrl: '/views/admin/scheduleAdmin.html',
-    controller: 'scheduleAdminCtrl',
-    resolve: {
-      user: function($state, loginService) {
-        return loginService.getCurrentUser()
-          .then(function(res) {
-            if (res.status != 200) {
-              console.log('brack');
-              alert('Unauthorized');
-              $state.go('home');
-
-            } else {
-              return res.data;
-            }
-          }, function(err) {
-            console.log('brack');
-            alert('Unauthorized');
-            $state.go('home');
-
-          });
-      }
-    }
+    controller: 'scheduleAdminCtrl'
+    // resolve: {
+    //   user: function($state, loginService) {
+    //     return loginService.getCurrentUser()
+    //       .then(function(res) {
+    //         if (res.status != 200) {
+    //           console.log('brack');
+    //           alert('Unauthorized');
+    //           $state.go('home');
+    //
+    //         } else {
+    //           return res.data;
+    //         }
+    //       }, function(err) {
+    //         console.log('brack');
+    //         alert('Unauthorized');
+    //         $state.go('home');
+    //
+    //       });
+    //   }
+    // }
   })
 
   .state('clientAdmin', {
     url: '/clientAdmin',
     templateUrl: '/views/admin/clientAdmin.html',
     controller: 'clientCtrl',
-    resolve: {
-      user: function($state, loginService) {
-        return loginService.getCurrentUser()
-          .then(function(res) {
-            if (res.status != 200) {
-              console.log('brack');
-              alert('Unauthorized');
-              $state.go('home');
-
-            } else {
-              return res.data;
-            }
-          }, function(err) {
-            console.log('brack');
-            alert('Unauthorized');
-            $state.go('home');
-
-          });
-      }
-    }
+    // resolve: {
+    //   user: function($state, loginService) {
+    //     return loginService.getCurrentUser()
+    //       .then(function(res) {
+    //         if (res.status != 200) {
+    //           console.log('brack');
+    //           alert('Unauthorized');
+    //           $state.go('home');
+    //
+    //         } else {
+    //           return res.data;
+    //         }
+    //       }, function(err) {
+    //         console.log('brack');
+    //         alert('Unauthorized');
+    //         $state.go('home');
+    //
+    //       });
+    //   }
+    // }
   })
 
   .state('productAdmin', {
     url: '/productAdmin',
     templateUrl: '/views/admin/productAdmin.html',
     controller: 'productAdminCtrl',
-    resolve: {
-      user: function($state, loginService) {
-        return loginService.getCurrentUser()
-          .then(function(res) {
-            if (res.status != 200) {
-              console.log('brack');
-              alert('Unauthorized');
-              $state.go('home');
-
-            } else {
-              return res.data;
-            }
-          }, function(err) {
-            console.log('brack');
-            alert('Unauthorized');
-            $state.go('home');
-
-          });
-      }
-    }
+    // resolve: {
+    //   user: function($state, loginService) {
+    //     return loginService.getCurrentUser()
+    //       .then(function(res) {
+    //         if (res.status != 200) {
+    //           console.log('brack');
+    //           alert('Unauthorized');
+    //           $state.go('home');
+    //
+    //         } else {
+    //           return res.data;
+    //         }
+    //       }, function(err) {
+    //         console.log('brack');
+    //         alert('Unauthorized');
+    //         $state.go('home');
+    //
+    //       });
+    //   }
+    // }
   })
 
   .state('teamAdmin', {
     url: '/teamAdmin',
     templateUrl: '/views/admin/teamAdmin.html',
     controller: 'teamAdminCtrl',
-    resolve: {
-      user: function($state, loginService) {
-        return loginService.getCurrentUser()
-          .then(function(res) {
-            if (res.status != 200) {
-              console.log('brack');
-              alert('Unauthorized');
-              $state.go('home');
-
-            } else {
-              return res.data;
-            }
-          }, function(err) {
-            console.log('brack');
-            alert('Unauthorized');
-            $state.go('home');
-
-          });
-      }
-    }
+    // resolve: {
+    //   user: function($state, loginService) {
+    //     return loginService.getCurrentUser()
+    //       .then(function(res) {
+    //         if (res.status != 200) {
+    //           console.log('brack');
+    //           alert('Unauthorized');
+    //           $state.go('home');
+    //
+    //         } else {
+    //           return res.data;
+    //         }
+    //       }, function(err) {
+    //         console.log('brack');
+    //         alert('Unauthorized');
+    //         $state.go('home');
+    //
+    //       });
+    //   }
+    // }
   });
   $urlRouterProvider.otherwise('/');
 

@@ -15,7 +15,7 @@ $scope.addMember = function(newMember) {
   .then( function(res){
     alert('New Team Member Added!');
     $scope.getTeam();
-    $scope.newProduct = null;
+    $scope.newMember = null;
   });
 };
 

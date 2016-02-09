@@ -19,6 +19,7 @@ angular.module('app')
           data: {
             firstName: newClient.name1,
             lastName: newClient.name2,
+            fullName: newClient.name1 + ' ' + newClient.name2,
             phone: newClient.phone,
             email: newClient.email
           }
