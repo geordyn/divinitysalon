@@ -13,7 +13,7 @@ var teamCtrl = require('./controllers/teamCtrl.js');
 var userCtrl = require('./controllers/userCtrl.js');
 var clientCtrl = require('./controllers/clientCtrl.js');
 var appointmentCtrl = require('./controllers/appointmentCtrl.js');
-
+var feedbackCtrl = require('./controllers/feedbackCtrl.js');
 
 
 
@@ -70,6 +70,13 @@ app.post('/api/productAdmin', productCtrl.create); //posts new product
 app.get('/api/products', productCtrl.retreive); //gets all products
 app.put('/api/productAdmin/:id', productCtrl.update); //updates individual product
 app.delete('/api/productAdmin/:id', productCtrl.remove); //deletes individual product
+
+//feedback//
+app.post('/api/feedback', feedbackCtrl.create); //posts new feedback
+app.get('/api/feedbacks', feedbackCtrl.retreive); //gets all feedbacks
+app.put('/api/feedback/:id', feedbackCtrl.update); //updates individual feedback
+app.delete('/api/feedback/:id', feedbackCtrl.remove); //deletes individual feedback
+
 
 //team//
 app.post('/api/teamAdmin', teamCtrl.create); //posts new team member (stylist)
