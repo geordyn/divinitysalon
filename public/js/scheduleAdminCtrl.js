@@ -86,7 +86,9 @@ angular.module('app')
     }];
 
 
-    var events = [];
+
+
+
 
     $scope.getTeam = function() {
       teamAdminService.getTeam()
@@ -234,7 +236,7 @@ angular.module('app')
         eventClick: function(event, element) {
 
           if (confirm("Are you sure you want to DELETE this appointment?")) {
-            console.log('event :::::', event)
+            console.log('event :::::', event);
                      calendarService.deleteAppt(event._id)
                      .then( function(res){
                        $scope.getAppointments();

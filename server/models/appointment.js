@@ -13,16 +13,6 @@ var Appointment = new Schema({
 });
 
 
-// Below is how MOMENT will combine the date and time to fit the calendar's format in the front end.
-// $scope.submitAppt = function(appointment, date, time) {
-// 	// appointmentService.addAppointmentById(appointment);
-// 	appointment.start = new Date(date + ', ' + time);
-// 	appointment.end = moment(appointment.start).add(appointment.end, 'm');
-// 	appointmentsService.makeAppointment(appointment);
-//
-// };
-
-
 
 
 

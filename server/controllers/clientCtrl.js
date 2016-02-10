@@ -4,7 +4,7 @@ module.exports = {
 
 
   create: function(req, res) {
-        console.log('req.query: ', req.query);
+        // console.log('req.query: ', req.query);
         var newClient = new Client(req.body);
         newClient.save(function(err, result) {
           if (err) {
@@ -24,7 +24,7 @@ module.exports = {
         res.send(err);
       }
       else {
-        console.log('get ctrl');
+        // console.log('get ctrl');
         res.send(result);
       }
     });
@@ -36,7 +36,7 @@ module.exports = {
         res.status(500).send(err);
       }
       else {
-        console.log('update ctrl');
+        // console.log('update ctrl');
         res.send(result);
       }
     });
@@ -48,7 +48,7 @@ module.exports = {
         res.status(500).send(err);
       }
       else{
-        console.log('remove ctrl');
+        // console.log('remove ctrl');
         res.send(result);
       }
     });

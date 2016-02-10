@@ -1,5 +1,18 @@
 <div class="tmplCont">
 
+
+
+
+
+<!-- EXISTING REVIEWS -->
+<div class="reviews" ng-repeat="review in feedback">
+  <div class="review name"> {{ review.name }} </div>
+<span ng-repeat="i in getNumber( review.stars ) track by $index"><img src="imgs/star.PNG"></span>
+<div class="review review"> {{ review.review }}</div>
+</div>
+
+
+
 <div class="contactCont">
 
 
@@ -37,7 +50,77 @@ Contact us at <strong>760.436.2932</strong> to schedule hair and skincare appoin
 
 </p>
 
+<div class="feedbackForm" style="width: 100%;">
 
+
+<div class="bootstrap-iso" style="">
+<div class="container-fluid">
+<div class="formden_header">
+ <h2>
+Leave Divinity Salon a review!
+ </h2>
+ <p>
+ </p>
+</div>
+<form method="post">
+ <div class="form-group ">
+  <label class="control-label requiredField" for="name4">
+   Name
+   <span class="asteriskField">
+    *
+   </span>
+  </label>
+<!-- NEW feedback NAME -->
+  <input class="form-control" id="name4" name="name4" type="text" ng-model="newFeedback.name"/>
+ </div>
+
+
+ <div class="form-group ">
+   <label class="control-label requiredField" for="name4">
+    Which Stylist Did You Have During Your Visit?
+    <span class="asteriskField">
+     *
+    </span>
+   <select ng-options="member as member.name for member in team track by member._id" ng-model="newFeedback.member" class="select form-control" id="selClient" name="selClient">
+
+
+
+   </select>
+ </div>
+
+
+ <div class="form-group ">
+  <label class="control-label " for="prodUrl">
+   Choose A Rating
+ </label><br/>
+<!-- NEW Feedback Rating -->
+<span class="star-rating">
+<input type="radio" name="rating" value="1" ng-model="newFeedback.stars"><i></i>
+<input type="radio" name="rating" value="2" ng-model="newFeedback.stars"><i></i>
+<input type="radio" name="rating" value="3" ng-model="newFeedback.stars"><i></i>
+<input type="radio" name="rating" value="4" ng-model="newFeedback.stars"><i></i>
+<input type="radio" name="rating" value="5" ng-model="newFeedback.stars"><i></i>
+</span>
+ </div>
+ <div class="form-group ">
+  <label class="control-label " for="prodDescription">
+   Description
+  </label>
+<!-- NEW Feedback DESCRIPTION -->
+  <textarea class="form-control" cols="40" id="prodDescription" name="prodDescription" rows="10" ng-model="newFeedback.review"></textarea>
+ </div>
+ <div class="form-group">
+  <div>
+   <button class="btn btn-custom btn-lg btn-block" name="submit" type="submit" ng-click="addFeedback(newFeedback)">
+    Send Review
+   </button>
+  </div>
+ </div>
+</form>
+</div>
+</div>
+<!-- new feedback form div ends below -->
+</div>
 
 
 

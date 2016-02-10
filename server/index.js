@@ -73,7 +73,7 @@ app.delete('/api/productAdmin/:id', productCtrl.remove); //deletes individual pr
 
 //feedback//
 app.post('/api/feedback', feedbackCtrl.create); //posts new feedback
-app.get('/api/feedbacks', feedbackCtrl.retreive); //gets all feedbacks
+app.get('/api/feedback', feedbackCtrl.retreive); //gets all feedbacks
 app.put('/api/feedback/:id', feedbackCtrl.update); //updates individual feedback
 app.delete('/api/feedback/:id', feedbackCtrl.remove); //deletes individual feedback
 

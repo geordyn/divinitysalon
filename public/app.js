@@ -33,7 +33,7 @@ angular.module('app', ['ui.router'])
     .state('contact', {
       url: '/contact',
       templateUrl: '/views/contactTmpl.html',
-      controller: 'mainCtrl'
+      controller: 'contactCtrl'
     })
     .state('login', {
       url: '/login',

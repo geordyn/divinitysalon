@@ -3,7 +3,7 @@ var Appointment = require('../models/appointment.js');
 module.exports = {
 
   addAppt: function(req, res) {
-    console.log(req.body);
+    // console.log(req.body);
     var newAppt = new Appointment(req.body);
     newAppt.save(function(err, appointment) {
       if (err) {
@@ -44,7 +44,7 @@ module.exports = {
 				res.status(500).send(err);
 			}
 			else {
-				console.log('update apptctrl');
+				// console.log('update apptctrl');
 				res.send(result);
 			}
 		});
@@ -62,28 +62,3 @@ module.exports = {
 
 
 };
-
-  // DOES THE CALENDAR ALREADY DO THESE LIKE DO I EVEN NEED THESE LIKE WHAT IS GOING ON?????????
-
-  // 	getTodayAppt: function(req, res) {
-  // 		Appointment.find({ date: new Date(Date.now())})
-  // 			.populate('patient')
-  //       .exec(function(err, appointments) {
-  // 				if (err) {
-  // 					return res.status(500).send(err);
-  // 				}
-  //
-  // 				res.send(appointments);
-  //
-  // 			});
-  // 	},
-  //
-  // 	get1Appt: function(req, res) {
-  // 		Appointment.findById(req.query.id, function(err, appointment) {
-  // 			if (err) {
-  // 				return console.error(err);
-  // 			} else {
-  // 				res.send(appointment);
-  // 			}
-  // 		});
-  // 	},
