@@ -6,6 +6,7 @@ var team = Schema({
   img: { type: String },
   name: { type: String },
   bio: { type: String },
+  payroll: { type: Schema.Types.ObjectId, ref: "payroll" }
 });
 
 

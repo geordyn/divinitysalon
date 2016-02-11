@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('teamAdminCtrl', function($scope, teamAdminService){
+.controller('teamAdminCtrl', function($scope, teamAdminService, clockService){
 
   $scope.getTeam = function() {
     teamAdminService.getTeam()
@@ -33,6 +33,28 @@ $scope.editMember = function(editMember) {
     $scope.getTeam();
   });
 };
+
+
+$scope.clockIn = function(member) {
+  var d = new Date();
+  var date = d.toISOString();
+  clockService.clockIn(date, member)
+  .then( function(res){
+    console.log(res);
+    //save objectid for last clock in to update clock out time
+    $scope.lastClockIn = res;
+    swal("You've Clocked In!", "clock in time: " + date, "success");
+  });
+};
+
+$scope.clockOut = function() {
+  var d = new Date();
+  var date = d.toISOString();
+  swal("You've Clocked Out!", "clock out time: " + date, "success");
+};
+
+
+
 
 
 });

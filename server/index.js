@@ -14,6 +14,7 @@ var userCtrl = require('./controllers/userCtrl.js');
 var clientCtrl = require('./controllers/clientCtrl.js');
 var appointmentCtrl = require('./controllers/appointmentCtrl.js');
 var feedbackCtrl = require('./controllers/feedbackCtrl.js');
+var clockCtrl = require('./controllers/clockCtrl.js');
 
 
 
@@ -77,6 +78,12 @@ app.get('/api/feedback', feedbackCtrl.retreive); //gets all feedbacks
 app.get('/api/feedback/:id', feedbackCtrl.getMemberFeedback); //gets ind feedback per teamMember
 app.put('/api/feedback/:id', feedbackCtrl.update); //updates individual feedback
 app.delete('/api/feedback/:id', feedbackCtrl.remove); //deletes individual feedback
+
+//clock IN or OUT//
+app.post('/api/clockIn', clockCtrl.clockIn); //posts new clockIn
+app.get('/api/clock', clockCtrl.getClock); //gets all clocks
+app.put('/api/clockOut/:id', clockCtrl.clockOut); //updates existing clockIn's clockOut time
+app.delete('/api/clock/:id', clockCtrl.remove); //deletes individual clock
 
 
 //team//

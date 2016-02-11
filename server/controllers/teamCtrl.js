@@ -16,17 +16,11 @@ module.exports = {
     },
 
   retreive: function(req, res){
-    Team.find(req.query)
+    Team.find({})
     .exec()
-    .then(function(err, result){
-      if(err){
-        console.log(err);
-        res.send(err);
-      }
-      else {
+    .then(function(result){
         // console.log('get ctrl');
         res.send(result);
-      }
     });
   },
 
