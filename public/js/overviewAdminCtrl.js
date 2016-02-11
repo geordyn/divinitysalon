@@ -43,13 +43,13 @@ $scope.getTeam = function() {
       $scope.team = res;
 
       for(var i = 0; i < $scope.team.length; i++){
-        // console.log("team id",$scope.team[i]._id);
+        console.log("team id",$scope.team[i]._id);
         $scope.getMemberApts($scope.team[i]._id);
       }
-      // for ( i = 0; i < $scope.team.length; i++) {
-      //   // console.log("team id",$scope.team[i]._id);
-      //   $scope.getMemberFeedback($scope.team[i]._id);
-      // }
+      for ( i = 0; i < $scope.team.length; i++) {
+        // console.log("team id",$scope.team[i]._id);
+        $scope.getMemberFeedback($scope.team[i]._id);
+      }
 
     });
 };

@@ -31,15 +31,9 @@ module.exports = {
   getClock: function(req, res){
     Clock.find(req.query)
     .exec()
-    .then(function(err, result){
-      if(err){
-        // console.log(err);
-        res.send(err);
-      }
-      else {
+    .then(function(result){
         // console.log('get ctrl');
         res.send(result);
-      }
     });
   },
 

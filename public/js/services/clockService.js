@@ -1,6 +1,15 @@
 angular.module('app')
 .service('clockService', function($http){
 
+  this.getClock = function () {
+    return $http({
+      method: 'GET',
+      url: '/api/clock'
+    }).then(function (res) {
+      return res.data;
+    });
+  };
+
 
   this.clockIn = function (date, member) {
     return $http({
@@ -9,11 +18,9 @@ angular.module('app')
       data: {
         employee: member._id,
         name: member.name,
-        type: {
-          in: true,
-          out: false
-          },
         timeIn: date,
+        timeOut: "none",
+        duration: "none",
       }
     }).then( function(res){
       console.log("clock service res, front end ",res);
@@ -24,15 +31,16 @@ angular.module('app')
   };
 
 
-  this.clockOut = function (clockOut) {
+  this.clockOut = function ( clockId, timeOut, duration ) {
     return $http({
       method: 'PUT',
-      url: '/api/clockOut/' + id,
+      url: '/api/clockOut/' + clockId,
       data: {
-        img: editMember.img,
-        name: editMember.name,
-        bio: editMember.bio
+        timeOut: timeOut,
+        duration: duration
       }
+    }).then(function(res){
+      return res.data;
     });
   };
 
@@ -45,13 +53,6 @@ angular.module('app')
 
 
 
-  this.getTeam = function () {
-    return $http({
-      method: 'GET',
-      url: '/api/team'
-    }).then(function (res) {
-      return res.data;
-    });
-  };
+
 
 });
