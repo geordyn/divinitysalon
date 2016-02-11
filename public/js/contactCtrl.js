@@ -38,7 +38,7 @@ angular.module('app')
       console.log(newFeedback.member._id);
       contactService.addFeedback(newFeedback)
         .then(function(res) {
-          alert('New Feedback Added!');
+          swal({   title: "Thank You For Your Feedback!",   text: "Divinity Salon takes pride in customer service; every review makes a difference.",   type: "success",   confirmButtonText: "You're Welcome" });
           $scope.getFeedback();
           $scope.newFeedback = null;
         });
@@ -47,7 +47,7 @@ angular.module('app')
     $scope.deleteProd = function(id) {
       contactService.deleteFeedback(id)
         .then(function(res) {
-          alert('Feedback Deleted');
+          alert('Feedback Deleted!');
           $scope.getFeedback();
         });
     };
@@ -58,6 +58,14 @@ angular.module('app')
           $scope.getFeedback();
         });
     };
+
+
+
+
+
+
+
+
 
 
   });
