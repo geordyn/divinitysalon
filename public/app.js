@@ -68,7 +68,31 @@ angular.module('app', ['ui.router'])
     //   }
     // }
   })
-
+  .state('overviewAdmin', {
+    url: '/overviewAdmin',
+    templateUrl: '/views/admin/overviewAdmin.html',
+    controller: 'overviewAdminCtrl'
+    // resolve: {
+    //   user: function($state, loginService) {
+    //     return loginService.getCurrentUser()
+    //       .then(function(res) {
+    //         if (res.status != 200) {
+    //           console.log('brack');
+    //           alert('Unauthorized');
+    //           $state.go('home');
+    //
+    //         } else {
+    //           return res.data;
+    //         }
+    //       }, function(err) {
+    //         console.log('brack');
+    //         alert('Unauthorized');
+    //         $state.go('home');
+    //
+    //       });
+    //   }
+    // }
+  })
   .state('clientAdmin', {
     url: '/clientAdmin',
     templateUrl: '/views/admin/clientAdmin.html',

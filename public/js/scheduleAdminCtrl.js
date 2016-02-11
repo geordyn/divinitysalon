@@ -111,7 +111,8 @@ angular.module('app')
         .then(function(res) {
           console.log(res);
           var events = res;
-          console.log(events);
+          $scope.events = res;
+          // console.log(events);
           $("#calendar").fullCalendar('removeEvents');
           $("#calendar").fullCalendar('addEventSource', events);
           $("#calendar").fullCalendar('rerenderEvents');
@@ -123,12 +124,14 @@ angular.module('app')
         .then(function(res) {
           console.log(res);
           var events = res;
-          console.log(events);
+          $scope.events = res;
+          // console.log(events);
           $("#calendar").fullCalendar('removeEvents');
           $("#calendar").fullCalendar('addEventSource', events);
           $("#calendar").fullCalendar('rerenderEvents');
         });
     };
+
 
 
 
