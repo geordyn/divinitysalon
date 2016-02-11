@@ -34,6 +34,8 @@ angular.module('app')
 
 
     $scope.addFeedback = function(newFeedback) {
+      console.log(newFeedback.member.name);
+      console.log(newFeedback.member._id);
       contactService.addFeedback(newFeedback)
         .then(function(res) {
           alert('New Feedback Added!');

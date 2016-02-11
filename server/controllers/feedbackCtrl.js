@@ -30,6 +30,19 @@ module.exports = {
     });
   },
 
+  getMemberFeedback: function(req, res) {
+    Feedback.find({employee: req.params.id})
+    .exec()
+    .then(function(rating, err){
+      if(err) {
+        return console.error(err);
+      } else {
+        res.send(rating);
+      }
+    });
+  },
+
+
   update: function(req, res){
     Feedback.findByIdAndUpdate(req.params.id, {$set: req.body}, function(err, result){
       if(err){

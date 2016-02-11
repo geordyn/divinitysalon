@@ -1,8 +1,15 @@
+.chart {
+  display: inline-block;
+  vertical-align: bottom;
+}
+
 .chart div {
+  bottom: 0;
+  display: inline-block;;
   font: 10px sans-serif;
   background-color: steelblue;
-  text-align: right;
-  padding: 3px;
+  text-align: center;
+  padding: 20px;
   margin: 1px;
   color: white;
 }

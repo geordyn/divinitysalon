@@ -20,7 +20,7 @@ var feedbackCtrl = require('./controllers/feedbackCtrl.js');
 /////
 var app = express();
 
-var port = 2222;
+var port = 2000;
 
 app.use(bodyParser.json());
 app.use(express.static(__dirname + "/../public"));
@@ -74,6 +74,7 @@ app.delete('/api/productAdmin/:id', productCtrl.remove); //deletes individual pr
 //feedback//
 app.post('/api/feedback', feedbackCtrl.create); //posts new feedback
 app.get('/api/feedback', feedbackCtrl.retreive); //gets all feedbacks
+app.get('/api/feedback/:id', feedbackCtrl.getMemberFeedback); //gets ind feedback per teamMember
 app.put('/api/feedback/:id', feedbackCtrl.update); //updates individual feedback
 app.delete('/api/feedback/:id', feedbackCtrl.remove); //deletes individual feedback
 
