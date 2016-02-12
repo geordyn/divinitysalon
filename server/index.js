@@ -81,9 +81,11 @@ app.delete('/api/feedback/:id', feedbackCtrl.remove); //deletes individual feedb
 
 //clock IN or OUT//
 app.post('/api/clockIn', clockCtrl.clockIn); //posts new clockIn
-app.get('/api/clock', clockCtrl.getClock); //gets all clocks
+app.get('/api/clock', clockCtrl.getClock); //gets all clocks, AUTH ONLY
+app.get('/api/clock/:id', clockCtrl.getEmployeeClocks); //gets all clocks, AUTH ONLY
 app.put('/api/clockOut/:id', clockCtrl.clockOut); //updates existing clockIn's clockOut time
-app.delete('/api/clock/:id', clockCtrl.remove); //deletes individual clock
+app.delete('/api/clock/:id', clockCtrl.remove); //deletes individual clock, AUTH ONLY
+app.delete('/api/DELETEALL', clockCtrl.removeAll); //deletes ENTIRE collection per PR dates, AUTH ONLY
 
 
 //team//

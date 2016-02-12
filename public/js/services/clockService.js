@@ -10,6 +10,14 @@ angular.module('app')
     });
   };
 
+this.getEmployeeClocks = function(id) {
+  return $http({
+    method: 'GET',
+    url: '/api/clock/' + id
+  }).then(function (res) {
+    return res.data;
+  });
+};
 
   this.clockIn = function (date, member) {
     return $http({
@@ -51,7 +59,12 @@ angular.module('app')
     });
   };
 
-
+  this.removeAll = function (id) {
+    return $http({
+      method: 'DELETE',
+      url: '/api/DELETEALL'
+    });
+  };
 
 
 

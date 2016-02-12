@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 var team = Schema({
   img: { type: String },
   name: { type: String },
-  bio: { type: String },
+  bio: { type: String }
 });
 
 

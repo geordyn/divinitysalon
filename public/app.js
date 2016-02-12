@@ -42,7 +42,31 @@ angular.module('app', ['ui.router'])
     })
 
   ///////ADMIN VIEWS/////
-
+  .state('timecard', {
+    url: '/timecardAdmin',
+    templateUrl: '/views/admin/timecardAdmin.html',
+    controller: 'teamAdminCtrl'
+    // resolve: {
+    //   user: function($state, loginService) {
+    //     return loginService.getCurrentUser()
+    //       .then(function(res) {
+    //         if (res.status != 200) {
+    //           console.log('brack');
+    //           alert('Unauthorized');
+    //           $state.go('home');
+    //
+    //         } else {
+    //           return res.data;
+    //         }
+    //       }, function(err) {
+    //         console.log('brack');
+    //         alert('Unauthorized');
+    //         $state.go('home');
+    //
+    //       });
+    //   }
+    // }
+  })
   .state('scheduleAdmin', {
     url: '/scheduleAdmin',
     templateUrl: '/views/admin/scheduleAdmin.html',

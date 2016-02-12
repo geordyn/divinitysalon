@@ -37,7 +37,7 @@ module.exports = {
     });
   },
 
-  getMemberClock: function(req, res) {
+  getEmployeeClocks: function(req, res) {
     Clock.find({employee: req.params.id})
     .exec()
     .then(function(rating, err){
@@ -58,6 +58,13 @@ module.exports = {
         // console.log('remove ctrl');
         res.send(result);
       }
+    });
+  },
+
+  removeAll: function(req, res){
+    Clock.remove({})
+    .then( function (res){
+      console.log("remove ALL function clockCtrl");
     });
   }
 
