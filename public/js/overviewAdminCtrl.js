@@ -3,90 +3,163 @@ angular.module('app')
 
 
 
-/////D3 GRAPH DATA AND SETTINGS
-var data = [];
+
+//ng-repeat for picture//
+    $scope.getNumber = function(num) {
+      return new Array(num);
+    };
 
 
 
+    /////D3 GRAPH DATA AND SETTINGS
+    var data = [];
 
 
-
-/////GETTING DATA
-$scope.getMemberFeedback = function(memberId) {
-  contactService.getMemberFeedback(memberId)
-  .then(function(res){
-    $scope.reviewNum = res;
-    console.log("reviewNum Array", $scope.reviewNum);
-    // var total = 0;
-    // $.each(arr,function() {
-    // total += this;
-  });
-};
-
-
-$scope.getMemberApts = function(memberId) {
-  calendarService.getMemberApts(memberId)
-    .then(function(res) {
-      console.log("this is res",res);
-      $scope.memberNum = res.length;
-      console.log("memberNum",$scope.memberNum);
-      data.push($scope.memberNum);
-      console.log("this is data",data);
-      $scope.getData();
-    });
-};
-
-
-$scope.getTeam = function() {
-  teamAdminService.getTeam()
-    .then(function(res) {
-      $scope.team = res;
-
-      for(var i = 0; i < $scope.team.length; i++){
-        console.log("team id",$scope.team[i]._id);
-        $scope.getMemberApts($scope.team[i]._id);
+    $scope.average = function(nums) {
+    var sum = 0;
+    for(var t = 0; t < nums.length; t++) {
+      sum += nums[t];
       }
-      for ( i = 0; i < $scope.team.length; i++) {
-        // console.log("team id",$scope.team[i]._id);
-        $scope.getMemberFeedback($scope.team[i]._id);
-      }
-
-    });
-};
-$scope.getTeam();
+      var average = Math.round( sum / nums.length);
+      return average;
+    };
 
 
-$scope.getAppointments = function() {
-  calendarService.getAppointments()
-    .then(function(res) {
-      console.log(res);
-      $scope.events = res;
-      // console.log(events);
-    });
-};
-$scope.getAppointments();
+    $scope.sendAverage = function(id, overall) {
+      teamAdminService.editRating(id, overall)
+      .then( function(res){
+        console.log("average updated on stylist");
+      });
+    };
+
+
+    /////GETTING DATA
+
+    $scope.getMemberFeedback = function(memberId) {
+      var id = memberId;
+      var nums = [];
+      contactService.getMemberFeedback(id)
+        .then(function(res) {
+          $scope.reviews = res;
+          for (var i = 0; i < $scope.reviews.length; i++) {
+            if ($scope.reviews[i].stars) {
+              nums.push($scope.reviews[i].stars);
+              console.log("stars value array per", id , nums);
+              var overall = $scope.average(nums);
+              // data.push(overall);
+              // $scope.getData();
+              console.log('overallRating after average', overall);
+              $scope.sendAverage(id, overall);
+              console.log("starting next loop");
+              // $scope.getTeamOverall();
+            }
+          }
+        });
+    };
+
+
+    $scope.getTeam = function() {
+      teamAdminService.getTeam()
+        .then(function(res) {
+          $scope.team = res;
+          for (i = 0; i < $scope.team.length; i++) {
+            console.log("team id",$scope.team[i]._id);
+            $scope.getMemberFeedback($scope.team[i]._id);
+          }
+
+        });
+    };
+    $scope.getTeam();
+
+
+    $scope.getTeamOverall = function() {
+      teamAdminService.getTeam()
+      .then(function(res){
+        data = res;
+        $scope.d3();
+      });
+    };
+$scope.getTeamOverall();
 
 
 
 
 
-$scope.getData = function() {
-d3.select(".chart")
-  .selectAll("div")
-    .data(data)
-  .enter().append("div")
-    .style("height", function(d) { return 0 + "px"; })
-    .text(function(d) { return d; });
 
-d3.select(".chart")
-      .selectAll("div")
+
+
+
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////// D3
+/////////////////////////////////////////////////BEGINS
+///////////////////////////////////////////BELOW
+////////////////////////////////////
+
+
+$scope.d3 = function() {
+    d3.select(".chart") // this should be an svg
+      .selectAll("rect")
         .data(data)
-        .transition()
-        .duration(1000)
-        .style("height", function(d) { return d*50 + "px"; });
+      .enter().append("rect")
+        .attr("height", function(d, i) { return 30 + "px"; })
+        .attr("width", function(d, i) { return 300 + "px"; })
+        .attr("x", function(d, i) { return 0 + "px"; })
+        .attr("y", function(d, i) { return i*40 + "px"; })
+        .style("fill", function(d,i) {return i%2?'#c0dfd9':'#b3c2bf';});
+
+        d3.select(".chart") // this should be an svg
+          .selectAll(".name")
+            .data(data)
+          .enter().append("text")
+          .classed('name',true)
+          .text(function(d) { return d.name; })
+          .style("fill", function(d, i) { return 'white' ;})
+          .attr("x", function(d, i) { return 150 + "px"; })
+          .attr("y", function(d, i) { return i*40+20 + "px"; });
+
+          d3.select(".chart") // this should be an svg
+            .selectAll(".rating")
+              .data(data)
+            .enter().append("text")
+            .classed('rating', true)
+            .text(function(d) { return d.overallRating; })
+            .style("fill", function(d, i) {return i%2?'#c0dfd9':'#b3c2bf' ;})
+            .attr("x", function(d, i) { return 0 + "px"; })
+            .attr("y", function(d, i) { return i*40+20 + "px"; });
+
+          d3.select(".chart")
+              .selectAll("rect")
+              .data(data)
+              .transition()
+              .delay([1000])
+              .duration(1000)
+              .attr("width", function(d) {
+                return d.overallRating*20 + "px";
+              });
+
+            d3.select(".chart")
+                  .selectAll(".name")
+                  .data(data)
+                  .transition()
+                  .delay([1003])
+                  .duration(1000)
+
+                  .attr("x", function(d) {
+                    return d.overallRating*20+5 + "px" ;})
+                  .style("fill", function(d, i) { return '#3b3a36' ;});
+
+                  d3.select(".chart")
+                        .selectAll(".rating")
+                        .data(data)
+                        .transition()
+                        .delay([1003])
+                        .duration(1000)
+                        .style("fill", function(d, i) { return 'white' ;})
+                        .attr("x", function(d, i) { return d.overallRating*20-10 + "px"; });
+
 
 };
-
 
 
 

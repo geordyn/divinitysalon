@@ -32,7 +32,7 @@ angular.module('app')
   this.editMember = function (editMember) {
     return $http({
       method: 'PUT',
-      url: '/api/teamAdmin/' + id,
+      url: '/api/teamAdmin/' + editMember._id,
       data: {
         img: editMember.img,
         name: editMember.name,
@@ -41,7 +41,15 @@ angular.module('app')
     });
   };
 
-
+  this.editRating = function (id, overall) {
+    return $http({
+      method: 'PUT',
+      url: '/api/teamAdmin/' + id,
+      data: {
+        overallRating: overall
+      }
+    });
+  };
 
 
 
