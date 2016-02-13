@@ -6,8 +6,8 @@ var clock = Schema({
   employee: { type: Schema.Types.ObjectId, ref: 'Team' },
   name: { type: String },
   timeIn: { type: Date },
-  timeOut: { type: String },
-  duration: { type: String }
+  timeOut: { type: String, default: "none" },
+  duration: { type: String, default: "none" }
 });
 
 

@@ -39,10 +39,10 @@ this.getEmployeeClocks = function(id) {
   };
 
 
-  this.clockOut = function ( clockId, timeOut, duration ) {
+  this.clockOut = function ( clockOutId, timeOut, duration ) {
     return $http({
       method: 'PUT',
-      url: '/api/clockOut/' + clockId,
+      url: '/api/clockOut/' + clockOutId,
       data: {
         timeOut: timeOut,
         duration: duration
