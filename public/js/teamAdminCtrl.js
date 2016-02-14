@@ -63,15 +63,15 @@ angular.module('app')
 
 
 
-    $scope.putTimeOut = function(clockOutId, timeOut, duration) {
+    $scope.putTimeOut = function(clockOutId, timeOut) {
       console.log("CLOCKOUT ID",clockOutId);
-      var out = moment(timeOut).format('MM/DD/YYYY HH:mm:ss');
-      console.log("clockOutId:" + clockOutId, "timeout:" + out, "duration" + duration);
-      clockService.clockOut(clockOutId, timeOut, duration)
+      // var out = moment(timeOut).format('MM/DD/YYYY HH:mm:ss');
+      console.log("clockOutId:" + clockOutId, "timeOut", timeOut);
+      clockService.clockOut(clockOutId, timeOut)
         .then(function(res) {
           $scope.getClock();
 
-          $scope.toHours(memId);
+          // $scope.toHours(memId);
 
           swal("You've Clocked Out!", "clock Out time: " + timeOut, "success");
 
@@ -159,11 +159,43 @@ angular.module('app')
 
 
 
+    // $scope.clockOut = function(member) {
+    //   var memId = member._id;
+    //   var memberObj = member;
+    //   var date = moment().format('YYYY-MM-DDTHH:mm:ssZ');
+    //   $scope.getIndividualClocks(memId, date, memberObj);
+    // };
+
+
     $scope.clockOut = function(member) {
-      var memId = member._id;
-      var memberObj = member;
-      var date = moment().format('YYYY-MM-DDTHH:mm:ssZ');
-      $scope.getIndividualClocks(memId, date, memberObj);
+      clockService.getEmployeeClocks(member._id)
+        .then(function(res) {
+          $scope.indClocks = res;
+          var memberClocks = $scope.indClocks;
+          // console.log("memberClocks objects", $scope.indClocks);
+
+          for (var i = 0; i < memberClocks.length; i++) {
+
+            if (memberClocks[i].timeOut === "none") {
+
+              var clockOutId = memberClocks[i]._id;
+              var then = memberClocks[i].timeIn;
+              var timeOut = moment().format('YYYY-MM-DDTHH:mm:ssZ');
+
+              $scope.putTimeOut(clockOutId, timeOut);
+            } else if (memberClocks.timeOut !== "none") {
+              swal("Unable to Clock Out", "No existing Clock-In time", "error");
+            }
+
+
+          }
+
+        });
+
+
+
+
+
     };
 
 

@@ -1,5 +1,5 @@
 angular.module('app')
-  .controller('overviewAdminCtrl', (function($scope, calendarService, clientService, teamAdminService, contactService) {
+  .controller('overviewAdminCtrl', (function($scope, calendarService, clientService, teamAdminService, contactService, clockService) {
 
 
 
@@ -84,6 +84,33 @@ $scope.getTeamOverall();
 
 
 
+$scope.getClock = function() { //gets all clocks / 'time cards'
+  clockService.getClock()
+    .then(function(res) {
+      $scope.clocks = res;
+      var groupedClocks = _.groupBy($scope.clocks, 'employee');
+      for(var employeeKey in groupedClocks){
+        var employeesTimecards = groupedClocks[employeeKey];
+        var employeeTime = employeesTimecards.reduce(function(prev, cur, index, wholeArray){
+          return prev +cur.duration;
+        },0);
+        console.log(employeeTime);
+        _.find($scope.team,function(teamMemeber){
+          // if(employeeTime <= 3600){
+          //   employeeTime = 0;
+          // }
+          // if(employeeTime > 3600){
+          //   employeeTime = employeeTime/60/60;
+          // }
+          return teamMemeber._id == employeeKey;
+        }
+      ).totalHrs = Math.floor(employeeTime/60/60);
+      }
+      console.log(groupedClocks);
+      console.log("var clocks in getClock :", $scope.clocks);
+    });
+};
+$scope.getClock();
 
 
 
