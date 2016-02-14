@@ -152,7 +152,7 @@ angular.module('app')
         editable: true,
         droppable: true,
         theme: true,
-        eventLimit: true, // allow "more" link when too many events
+        eventLimit: false, // allow "more" link when too many events
         eventDrop: function(event, delta, revertFunc) {
           console.log(event);
           var eventUpdate = {
@@ -191,46 +191,22 @@ angular.module('app')
         eventRender: function(events, element, view) {
 
           console.log(events.teamMember);
-          if (events.teamMember === '56afd06c332d6aec1e06df67') {
-            //Angie Rosinski//
+          if (events.teamMember === '56be643210cf27a828d26e99') {
+            //Geraldine Cobb
             element.css('background-color', 'rgb(228, 54, 126)');
             element.css('border', 'rgb(228, 54, 126)');
 
           }
-          if (events.teamMember === '56afd0dc332d6aec1e06df68') {
-            //Ariana Thiem//
+          if (events.teamMember === '56be645810cf27a828d26e9a') {
+            //Jacques Cohen
             element.css('background-color', 'rgb(67, 216, 231)');
             element.css('border', 'rgb(67, 216, 231)');
 
           }
-          if (events.teamMember === '56b27aca2c5a9aac22f3c6c0') {
-            //Geraldine Cobb//
+          if (events.teamMember === '56be649810cf27a828d26e9d') {
+            //Elizabeth Woodworth
             element.css('background-color', 'rgb(67, 231, 157)');
             element.css('border', 'rgb(67, 231, 157)');
-
-          }
-          if (events.teamMember === '56b27b172c5a9aac22f3c6c1') {
-            //Jacques Cohen//
-            element.css('background-color', 'rgb(183, 146, 236)');
-            element.css('border', 'rgb(183, 146, 236)');
-
-          }
-          if (events.teamMember === '56b914bbf69683542497c1be') {
-            //Danielle Milosavljevic//
-            element.css('background-color', 'rgb(229, 247, 178)');
-            element.css('border', 'rgb(229, 247, 178)');
-
-          }
-          if (events.teamMember === '56b91506cd758f540ce17174') {
-            //Elizabeth Woodworth//
-            element.css('background-color', 'rgb(98, 141, 166)');
-            element.css('border', 'rgb(98, 141, 166)');
-
-          }
-          if (events.teamMember === '56b91530cd758f540ce17175') {
-            //Garidey Griesemer//
-            element.css('background-color', 'rgb(37, 110, 195)');
-            element.css('border', 'rgb(37, 110, 195)');
 
           }
         },
@@ -245,18 +221,10 @@ angular.module('app')
                        $scope.getAppointments();
                      });
                  }
-
-
-
-
           $('#calendar').fullCalendar('updateEvent', event);
-
         },
         events: []
       });
-
-
-
     });
 
 
@@ -266,14 +234,6 @@ angular.module('app')
 
       var appointment = newAppt;
       $scope.newAppt = null;
-
-      console.log('client ID: ' + appointment.client._id);
-      console.log('employee ID: ' + appointment.member._id);
-
-      console.log('original start and end times' + appointment.startTime, appointment.endTime);
-      console.log('original date' + appointment.date);
-      console.log('changed date formate via moment ' + moment(appointment.date).format('YYYY-MM-DD'));
-
 
       appointment.date = moment(appointment.date).format('YYYY-MM-DD');
       appointment.start = moment(appointment.date + 'T' + appointment.startTime);
