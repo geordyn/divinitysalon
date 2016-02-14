@@ -1,24 +1,18 @@
-<div class="tmplCont">
-  <img id="video-background" src="/imgs/rsz_ocean.png">
-</img>
+<div style="display: flex; align-content: center; justify-content: center; font-size: .7em; padding: 50px;">
 
-<div class="teamCont">
-  <h1>Team</h1>
 
-<div class="teamMember" ng-repeat="member in team">
+  <div class="stylists" ng-repeat="member in team track by member._id" style="display: inline-block; word-wrap: break-word; padding: 20px;">
 
-<img ng-src="{{ member.img }}">
-
-<h2>{{ member.name }}</h2>
-
-<p>
-
-{{member.bio}}
-
-</p>
+<div class="img-list">
+<a href="http://nataliemac.com">
+    <img ng-src="{{ member.img }}" height="300px" width="310px"><br>
+<span class="text-content"><span>{{member.bio}}</span></span>
+  </a>
 </div>
-
-
+    <h2>{{member.name}}</h2>
+    <!-- <p style="text-align: left;">
+    {{member.bio}}
+  </p> -->
 
 </div>
 </div>

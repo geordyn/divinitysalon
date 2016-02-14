@@ -5,9 +5,9 @@
 
 
 <!-- EXISTING REVIEWS -->
-<div class="reviews" ng-repeat="review in feedback">
+<div class="reviews" ng-repeat="review in feedback" style="padding:50px;">
   <div class="review name"> {{ review.name }} </div>
-<span ng-repeat="i in getNumber( review.stars ) track by $index"><img src="imgs/star.PNG"></span>
+<span ng-repeat="i in getNumber( review.stars ) track by $index"><img src="./styles/imgs/star.PNG"></span>
 <div class="review review"> {{ review.review }}</div>
 </div>
 
@@ -91,13 +91,20 @@ Leave Divinity Salon a review!
    Choose A Rating
  </label><br/>
 <!-- NEW Feedback Rating -->
-<span class="star-rating">
-<input type="radio" name="rating" value="1" ng-model="newFeedback.stars"><i></i>
-<input type="radio" name="rating" value="2" ng-model="newFeedback.stars"><i></i>
-<input type="radio" name="rating" value="3" ng-model="newFeedback.stars"><i></i>
-<input type="radio" name="rating" value="4" ng-model="newFeedback.stars"><i></i>
-<input type="radio" name="rating" value="5" ng-model="newFeedback.stars"><i></i>
+
+<span class="starRating">
+  <input id="rating5" type="radio" name="rating" value="5" ng-model="newFeedback.stars">
+  <label for="rating5">5</label>
+  <input id="rating4" type="radio" name="rating" value="4" ng-model="newFeedback.stars">
+  <label for="rating4">4</label>
+  <input id="rating3" type="radio" name="rating" value="3" ng-model="newFeedback.stars">
+  <label for="rating3">3</label>
+  <input id="rating2" type="radio" name="rating" value="2" ng-model="newFeedback.stars">
+  <label for="rating2">2</label>
+  <input id="rating1" type="radio" name="rating" value="1" ng-model="newFeedback.stars">
+  <label for="rating1">1</label>
 </span>
+
  </div>
  <div class="form-group ">
   <label class="control-label " for="prodDescription">

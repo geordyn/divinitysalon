@@ -1,37 +1,29 @@
-<div class="outer" style="max-width: 80%; padding: 10px; margin: auto;">
+<div class="outer" style="max-width: 80%; padding: 10px; margin: auto; display: inline-block">
 
 
-<span>TOTAL NUMBER OF APPOINTMENTS: {{events.length +1}}</span>
-
-
-  <center>
-    <div class="getButtons">
+<span>TOTAL NUMBER OF APPOINTMENTS: {{events.length}}</span>
 
 
 
-      <div class="buttonsCont" style="padding:1%; margin: 1%; display: inline; width: 600px; text-align: left;">
-
+    <div class="getButtons" style="display: block" >
         <!-- Trigger the modal with a button -->
-        <center>
-          <button class="btn btn-custom btn-lg" data-toggle="modal" data-target="#myModal" style="width: 12% padding: 0px; margin: 5px; font-size: 1em;">Add Appointment</button>
-          <button data-toggle="modal" data-target="#addClientModal" class="btn btn-custom btn-lg" style="width: 12% padding: 0px; margin: 5px; font-size: 1em;">Add Client</button>
-          <button ng-click="getAppointments()" class="btn btn-custom btn-lg" style="font-size: 1em;">
+        <!-- <center> -->
+          <button class="btn btn-custom btn-lg" data-toggle="modal" data-target="#myModal" style="width: 12% padding: 0px; margin: 5px; font-size: 1em; background-color: #2A2C43; color: #f9f9f9">Add Appointment</button>
+          <button data-toggle="modal" data-target="#addClientModal" class="btn btn-custom btn-lg" style="width: 12% padding: 0px; margin: 5px; font-size: 1em; background-color: #2A2C43; color: #f9f9f9">Add Client</button>
+          <button ng-click="getAppointments()" class="btn btn-custom btn-lg" style="font-size: 1em; background-color: #2A2C43; color: #f9f9f9">
             All Appointments
           </button>
-          <br/>
-          <select class="buttonsCont" style="display: inline-block;" ng-options="member as member.name for member in team track by member._id" ng-model="employee" ng-change="getMemberApts(employee._id)">
-
+        <span>  <select class="buttonsCont" style="display: inline-block;" ng-options="member as member.name for member in team track by member._id" ng-model="employee" ng-change="getMemberApts(employee._id)">
             <option> {{member.name}}  </option>
-        </center>
         </select>
-
-      </div>
-
+      </span>
+      <!-- </center> -->
     </div>
-  </center>
 
-  <center>
-    <div style="background-color: lightgray; padding: 1%; width: 600px; max-height: 80vh; overflow-y: scroll; margin-bottom: 50px;">
+
+
+
+    <div style="background-color: #f9f9f9; padding: 1%; margin-bottom: 50px; display: inline-block">
 
       <br/>
 
@@ -40,7 +32,6 @@
 
     </div>
 
-  </center>
 </div>
 
 

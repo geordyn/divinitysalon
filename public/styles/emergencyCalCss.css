@@ -24,6 +24,9 @@ body {
   border: 3px solid #fff7cd;
   margin-bottom: 0px;
 }
+#calendar .fc-toolbar h2 {
+    font-family: font-family: 'Pacifico', cursive;
+}
 
 #calendar td .fc-past {
   background-color: #afdefa;

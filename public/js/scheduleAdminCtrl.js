@@ -172,7 +172,7 @@ angular.module('app')
           calendarService.updateAppt(eventUpdate);
         },
         eventMouseover: function(calEvent, jsEvent) {
-          var tooltip = '<div class="tooltipevent" style=" padding: 1%; max-width: 100px; background:#fff7cd; font-size:0.6em; position:absolute; z-index:10001;">' + calEvent.description + '</div>';
+          var tooltip = '<div class="tooltipevent" style=" padding: 1%; max-width: 100px; background:#3b3a36; color:#e9ece5; font-size:0.6em; position:absolute; z-index:10001;">' + calEvent.description + '</div>';
           $("body").append(tooltip);
           $(this).mouseover(function(e) {
             $(this).css('z-index', 10000);
@@ -184,6 +184,7 @@ angular.module('app')
           });
         },
 
+
         eventMouseout: function(calEvent, jsEvent) {
           $(this).css('z-index', 8);
           $('.tooltipevent').remove();
@@ -193,20 +194,20 @@ angular.module('app')
           console.log(events.teamMember);
           if (events.teamMember === '56be643210cf27a828d26e99') {
             //Geraldine Cobb
-            element.css('background-color', 'rgb(228, 54, 126)');
-            element.css('border', 'rgb(228, 54, 126)');
+            element.css('background-color', '#edd9c0');
+            element.css('border', '#edd9c0');
 
           }
           if (events.teamMember === '56be645810cf27a828d26e9a') {
             //Jacques Cohen
-            element.css('background-color', 'rgb(67, 216, 231)');
-            element.css('border', 'rgb(67, 216, 231)');
+            element.css('background-color', '#c9d8c5');
+            element.css('border', '#c9d8c5');
 
           }
           if (events.teamMember === '56be649810cf27a828d26e9d') {
             //Elizabeth Woodworth
-            element.css('background-color', 'rgb(67, 231, 157)');
-            element.css('border', 'rgb(67, 231, 157)');
+            element.css('background-color', '#a8b6bf');
+            element.css('border', '#a8b6bf');
 
           }
         },
