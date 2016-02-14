@@ -41,17 +41,27 @@ angular.module('app')
     };
     $scope.getClock();
 
-    // $scope.toHours = function(durations) {
-    //
-    //   loop through array,convert to ms then hours [i]
-    //   then add up all after done looping
-    //   convert to decimal number
-    //   return totalHrs
-    // }
-    //
-    // $scope.sendTotalHrs = function(id, durations) {
-    //   'put' total hours onto user in backend
-    // }
+    $scope.toHours = function(memId, memberClocks) {
+      var clox = memberClocks;
+      console.log("IN HOURS FUNCTION", clox);
+        for(var i = 0; i < clox.length; i++){
+          if(clox[i].duration !== "none") {
+          var dur = clox[i].duration;
+          console.log("dur", dur);
+          var tonums = dur.split(":").map(Number);
+          hrs.push(tonums[0]);
+          console.log("HRS ARRAY", hrs);
+          mins.push(tonums[1]);
+          console.log("MINS ARRAY", mins);
+          var hours = hrs.reduce(function(a, b){return  a+b; });
+          console.log("THIS IS HOURS", hours);
+        }
+      }
+
+      };
+
+
+
 
     $scope.putTimeOut = function(clockOutId, timeOut, duration) {
       console.log("CLOCKOUT ID",clockOutId);
@@ -59,9 +69,14 @@ angular.module('app')
       console.log("clockOutId:" + clockOutId, "timeout:" + out, "duration" + duration);
       clockService.clockOut(clockOutId, timeOut, duration)
         .then(function(res) {
-          console.log(res);
           $scope.getClock();
+
+          $scope.toHours(memId);
+
           swal("You've Clocked Out!", "clock Out time: " + timeOut, "success");
+
+          //call function that loops through employee durations, and totals them
+
         });
     };
 
@@ -83,12 +98,16 @@ angular.module('app')
               var d1 = moment(then).format('MM/DD/YYYY HH:mm:ss');
               // console.log("timeIn", d1);
               // console.log("timeOut", d2);
-
-              var duration = moment.utc(moment(d2, "DD/MM/YYYY HH:mm:ss").diff(moment(d1, "DD/MM/YYYY HH:mm:ss"))).format("HH:mm:ss");
+              var durationWSeconds = moment.utc(moment(d2, "DD/MM/YYYY HH:mm:ss").diff(moment(d1, "DD/MM/YYYY HH:mm:ss"))).format("HH:mm:ss");
               // console.log('example', duration);
+              var split = durationWSeconds.split(":").map(Number);
+              console.log(split);
+              var remove = split.splice(2);
+              console.log("after splice", split);
+              var duration = split.join(":");
+              console.log("duration after join", duration);
               $scope.putTimeOut(clockOutId, timeOut, duration);
-
-
+              // $scope.toHours(memId, memberClocks);
               //HH:MM:SS
               //Split :   // splice 3rd out of the array (ss)
               //parseInt
@@ -98,10 +117,6 @@ angular.module('app')
               //push to hours array
               //add up hours array
               //push to totalHrs
-
-
-
-
             } else if (memberClocks.timeOut !== "none") {
               swal("Unable to Clock Out", "No existing Clock-In time", "error");
             }
@@ -120,7 +135,7 @@ angular.module('app')
           $scope.team = res;
           for (i = 0; i < $scope.team.length; i++) {
             console.log("team id", $scope.team[i]._id);
-            // $scope.getEmployeeClocks($scope.team[i]._id);
+            // clockService.getEmployeeClocks($scope.team[i]._id);
           }
 
         });
