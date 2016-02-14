@@ -2,9 +2,9 @@
   "name": "divinity-salon",
   "version": "0.8.0",
   "description": "project",
-  "main": "http://127.0.0.1:2222",
+  "main": "http://127.0.0.1:2000",
   "scripts": {
-    "start": "./start.js",
+    "start": "./start.sh",
     "test": "echo \"Error: no test specified\" && exit 1",
     "release": "./node_modules/.bin/nwbuild -p win64,osx64,linux64 -f ."
   },
