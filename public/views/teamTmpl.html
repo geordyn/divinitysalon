@@ -4,7 +4,7 @@
   <div class="stylists" ng-repeat="member in team track by member._id" style="display: inline-block; word-wrap: break-word; padding: 20px;">
 
 <div class="img-list">
-<a href="http://nataliemac.com">
+<a ui-sref="contact">
     <img ng-src="{{ member.img }}" height="300px" width="310px"><br>
 <span class="text-content"><span>{{member.bio}}</span></span>
   </a>

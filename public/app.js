@@ -189,7 +189,7 @@ angular.module('app', ['ui.router'])
     //   }
     // }
   });
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/home');
 
 })
 
@@ -201,14 +201,14 @@ angular.module('app', ['ui.router'])
       //can also use both 'EA'
     };
   })
-  .directive('calendar-dir', function() {
-      return {
-        templateUrl: './dirs/calendarDir.html',
-        restrict: 'E', //directive can only be used as a full element
-        //restrict: 'A' restricts attributes
-        //can also use both 'EA'
-      };
-    })
+    .directive('loginNav', function() {
+        return {
+          templateUrl: './dirs/loginNav.html',
+          restrict: 'E', //directive can only be used as a full element
+          //restrict: 'A' restricts attributes
+          //can also use both 'EA'
+        };
+      })
   .directive('addAptDir', function() {
     return {
       templateUrl: './dirs/addAptDir.html',

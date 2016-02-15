@@ -21,7 +21,7 @@ var clockCtrl = require('./controllers/clockCtrl.js');
 /////
 var app = express();
 
-var port = 2000;
+var port = process.argv[2] || 2000;
 
 app.use(bodyParser.json());
 app.use(express.static(__dirname + "/../public"));

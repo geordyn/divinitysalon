@@ -1,133 +1,125 @@
-<div class="tmplCont">
+
+
+<div class="tmplCont" style="display: flex; margin-right: -2%;">
 
 
 
+  <div style="flex: 1;">
+
+    <!-- <div class="days" style="text-align: left; padding: 20px; text-align: center">
+      <div style="display: inline-block; border: 1px solid blue;">
+        <strong>SUNDAY</strong> 10:00 am to 6:00 pm
+        <br/> <strong>MONDAY</strong> 10:00 am to 6:00 pm
+        <br/> <strong>TUESDAY</strong> 9:00 am to 7:00 pm
+        <br/><strong> WEDNESDAY</strong> 9:00 am to 7:00 pm
+        <br/> <strong>THURSDAY</strong> 9:00 am to 8:00 pm
+        <br/> <strong>FRIDAY</strong> 9:00 am to 7:00 pm
+        <br/> <strong>SATURDAY</strong> 9:00 am to 7:00 pm
+      </div>
+      <div style="display: inline-block; border: 1px solid black; vertical-align: top; margin-top: 10%;">
+        <strong>583 S.Coast Hwy 101 Encinitas, CA 92024<br/>
+  760.436.2932 | info@divinitysalon.com </strong>
+      </div>
+    </div> -->
 
 
-<!-- EXISTING REVIEWS -->
-<div class="reviews" ng-repeat="review in feedback" style="padding:50px;">
-  <div class="review name"> {{ review.name }} </div>
-<span ng-repeat="i in getNumber( review.stars ) track by $index"><img src="./styles/imgs/star.PNG"></span>
-<div class="review review"> {{ review.review }}</div>
-</div>
+
+    <!-- ////////////////////forms -->
+    <div style="">
+      <div class="feedbackForm" style="width: 100%; height: 300px;">
 
 
+        <div class="bootstrap-iso" style="">
+          <div class="container-fluid" >
+            <div class="formden_header">
+              <h3>
+  Leave Divinity Salon a review!
+</h3>
 
-<div class="contactCont">
+            </div>
+            <form method="post" style="padding: 30px; text-align: left;">
+              <div class="form-group " style="display: inline-block">
+                <label class="control-label requiredField" for="name4">
+                  Name
+                  <span class="asteriskField">
+      *
+     </span>
+                </label>
+                <!-- NEW feedback NAME -->
+                <input style=" width: 280px;" class="form-control" id="name4" name="name4" type="text" ng-model="newFeedback.name" />
+              </div>
 
 
-  <div class="days">
-    SUNDAY<br/>
-    MONDAY <br/>
-    TUESDAY<br/>
-    WEDNESDAY<br/>
-    THURSDAY<br/>
-    FRIDAY<br/>
-    SATURDAY<br/>
+              <div class="form-group" style="display: inline-block;">
+                <label class="control-label requiredField" for="name4">
+                  Stylist
+                  <span class="asteriskField">
+       *
+      </span>
+                  <select ng-options="member as member.name for member in team track by member._id" style="width: 280px;" ng-model="newFeedback.member" class="select form-control" id="selClient" name="selClient">
+                  </select>
+              </div>
 
+
+              <div class="form-group" style="text-align: center;">
+                <label class="control-label " for="prodUrl">
+                  Choose A Rating
+                </label>
+                <br/>
+                <!-- NEW Feedback Rating -->
+
+                <span class="starRating">
+    <input id="rating5" type="radio" name="rating" value="5" ng-model="newFeedback.stars">
+    <label for="rating5">5</label>
+    <input id="rating4" type="radio" name="rating" value="4" ng-model="newFeedback.stars">
+    <label for="rating4">4</label>
+    <input id="rating3" type="radio" name="rating" value="3" ng-model="newFeedback.stars">
+    <label for="rating3">3</label>
+    <input id="rating2" type="radio" name="rating" value="2" ng-model="newFeedback.stars">
+    <label for="rating2">2</label>
+    <input id="rating1" type="radio" name="rating" value="1" ng-model="newFeedback.stars">
+    <label for="rating1">1</label>
+  </span>
+
+              </div>
+
+              <div class="form-group ">
+                <label class="control-label" for="prodDescription">
+                  Description
+                </label>
+                <!-- NEW Feedback DESCRIPTION -->
+                <textarea class="form-control" cols="40" id="prodDescription" name="prodDescription" rows="3" ng-model="newFeedback.review"></textarea>
+              </div>
+              <div class="form-group">
+                <div>
+                  <button class="btn btn-custom btn-lg btn-block" name="submit" type="submit" ng-click="addFeedback(newFeedback)">
+                    Send Review
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- new feedback form div ends below -->
+      </div>
+    </div>
+  </div>
+  <!-- /////////////////////////////////reviews -->
+
+  <div style="width: 50%; max-height: 600px; min-height: 600px; overflow-x: none; overflow-y: scroll; flex: 1; margin-right: -2%;">
+    <!-- EXISTING REVIEWS -->
+    <div class="reviews" ng-repeat="review in feedback | orderBy: '-'" style="padding:50px;">
+      <div class="review name"> {{ review.name }} </div>
+      <span ng-repeat="i in getNumber( review.stars ) track by $index"><img src="./styles/imgs/star.PNG"></span>
+      <div class="review review"> {{ review.review }}</div>
+    </div>
   </div>
 
-  <div class="hours">
-    10:00 am to 6:00 pm<br/>
-    10:00 am to 6:00 pm<br/>
-    &nbsp;&nbsp;9:00 am to 7:00 pm<br/>
-    &nbsp;&nbsp;9:00 am to 7:00 pm<br/>
-    &nbsp;&nbsp;9:00 am to 8:00 pm<br/>
-    &nbsp;&nbsp;9:00 am to 7:00 pm<br/>
-    &nbsp;&nbsp;9:00 am to 7:00 pm<br/>
-  </div>
-
-<div class="contactTxt">
-<strong>Contact</strong><br/><br/>
-Divinity Salon & Boutique a full service hair salon specializing in hair, skincare, nails and fashion.<br/>
-<br/>
-<strong>583 S.Coast Hwy 101 Encinitas, CA 92024<br/>
-760.436.2932 | info@divinitysalon.com </strong>
-<br/>
-<br/>
-Contact us at <strong>760.436.2932</strong> to schedule hair and skincare appointments. Call Lanie at <strong>760.889.5666</strong> to schedule nail appointments.
-</div>
-
-</p>
-
-<div class="feedbackForm" style="width: 100%;">
-
-
-<div class="bootstrap-iso" style="">
-<div class="container-fluid">
-<div class="formden_header">
- <h2>
-Leave Divinity Salon a review!
- </h2>
- <p>
- </p>
-</div>
-<form method="post">
- <div class="form-group ">
-  <label class="control-label requiredField" for="name4">
-   Name
-   <span class="asteriskField">
-    *
-   </span>
-  </label>
-<!-- NEW feedback NAME -->
-  <input class="form-control" id="name4" name="name4" type="text" ng-model="newFeedback.name"/>
- </div>
-
-
- <div class="form-group ">
-   <label class="control-label requiredField" for="name4">
-    Which Stylist Did You Have During Your Visit?
-    <span class="asteriskField">
-     *
-    </span>
-   <select ng-options="member as member.name for member in team track by member._id" ng-model="newFeedback.member" class="select form-control" id="selClient" name="selClient">
-   </select>
- </div>
-
-
- <div class="form-group ">
-  <label class="control-label " for="prodUrl">
-   Choose A Rating
- </label><br/>
-<!-- NEW Feedback Rating -->
-
-<span class="starRating">
-  <input id="rating5" type="radio" name="rating" value="5" ng-model="newFeedback.stars">
-  <label for="rating5">5</label>
-  <input id="rating4" type="radio" name="rating" value="4" ng-model="newFeedback.stars">
-  <label for="rating4">4</label>
-  <input id="rating3" type="radio" name="rating" value="3" ng-model="newFeedback.stars">
-  <label for="rating3">3</label>
-  <input id="rating2" type="radio" name="rating" value="2" ng-model="newFeedback.stars">
-  <label for="rating2">2</label>
-  <input id="rating1" type="radio" name="rating" value="1" ng-model="newFeedback.stars">
-  <label for="rating1">1</label>
-</span>
-
- </div>
- <div class="form-group ">
-  <label class="control-label " for="prodDescription">
-   Description
-  </label>
-<!-- NEW Feedback DESCRIPTION -->
-  <textarea class="form-control" cols="40" id="prodDescription" name="prodDescription" rows="10" ng-model="newFeedback.review"></textarea>
- </div>
- <div class="form-group">
-  <div>
-   <button class="btn btn-custom btn-lg btn-block" name="submit" type="submit" ng-click="addFeedback(newFeedback)">
-    Send Review
-   </button>
-  </div>
- </div>
-</form>
-</div>
-</div>
-<!-- new feedback form div ends below -->
-</div>
 
 
 
 
-</div>
+
+
+
 </div>

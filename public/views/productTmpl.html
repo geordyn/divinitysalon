@@ -1,21 +1,23 @@
-<div class="tmplCont">
+<div class="products">
 
-<div class="productCont">
-    <h1>Products</h1>
+  <h1>Products</h1>
+<div class="productCont" style="display: flex; align-content: center; justify-content: center; padding: 2%;">
+<br/>
+  <div class="product" ng-repeat="product in products" style="max-width: 30%; max-height: 600px; font-size: .8em;">
 
-  <div class="product" ng-repeat="product in products">
-
-  <img ng-src="{{ product.img }}">
+  <img width="50%" height="170px" ng-src="{{ product.img }}">
 
   <h2>{{ product.brand }}</h2>
 
-  <p>
+  <p style="padding-left: 40px; padding-right: 40px;">
 
   {{ product.description }}
 
   </p>
   </div>
 
+</div>
+</div>
 
 
 
