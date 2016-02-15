@@ -1,12 +1,41 @@
 {
-  "name": "serverproject",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server/index.js",
+  "name": "divinity-salon",
+  "version": "0.8.0",
+  "description": "project",
+  "main": "http://127.0.0.1:2000",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "./start.sh",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "./node_modules/.bin/nwbuild -p win64,osx64,linux64 -f ."
   },
-  "author": "",
+  "bin": "npm run start",
+  "author": "Geordyn Ader",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/geordyn/divinitysalon.git"
+  },
+  "window": {
+    "title": "Divinity Salon",
+    "icon": "icon.png",
+    "toolbar": false,
+    "single-instance": true,
+    "width": 1600,
+    "height": 900,
+    "min_width": 800,
+    "min_height": 450,
+    "position": "center",
+    "dom_storage_quota": 64
+  },
+  "keywords": [
+    "salon",
+    "website",
+    "mean-stack",
+    "management",
+    "business"
+  ],
+  "bugs": {
+    "url": "https://github.com/geordyn/divinitysalon/issues"
+  },
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.3.0",
@@ -18,15 +47,10 @@
     "moment": "^2.11.2",
     "mongoose": "^4.3.7",
     "passport": "^0.3.2",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "nw-builder": "^2.2.0"
   },
   "devDependencies": {
-    "gulp": "^3.9.0",
-    "gulp-concat": "^2.6.0",
-    "gulp-jshint": "^2.0.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.1.1",
-    "gulp-uglify": "^1.5.1",
-    "jshint": "^2.9.1"
   }
 }
+
