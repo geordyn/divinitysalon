@@ -2,6 +2,16 @@
 
 <div class="tmplCont" style="display: flex; margin-right: -2%;">
 
+  <div style="flex:1; margin: 40px;">
+    <div style="max-height: 600px; min-height: 600px; overflow-x: none; overflow-y: scroll; flex: 1; margin-right: -2%;">
+      <!-- EXISTING REVIEWS -->
+      <div class="reviews" ng-repeat="review in feedback | orderBy: '-'" style="padding:10px; text-align: left">
+        <span ng-repeat="i in getNumber( review.stars ) track by $index"><img src="./styles/imgs/star.PNG"></span>
+        <div class="review name"> Client: <strong class="feedbackName">{{review.name}}</strong>  <br/>   Stylist: <strong class="feedbackName">{{ review.employeeName }}</strong> </div>
+        <div class="review review"> {{ review.review }}</div>
+      </div>
+    </div>
+  </div>
 
 
   <div style="flex: 1;">
@@ -28,16 +38,13 @@
     <div style="">
       <div class="feedbackForm" style="width: 100%; height: 300px;">
 
+        <h3 class="contactH3">
+          Leave Us a Review!
+        </h3>
 
         <div class="bootstrap-iso" style="">
-          <div class="container-fluid" >
-            <div class="formden_header">
-              <h3>
-  Leave Divinity Salon a review!
-</h3>
-
-            </div>
-            <form method="post" style="padding: 30px; text-align: left;">
+          <div class="container-fluid" style=" padding-left: 0px;">
+            <form method="post" style="padding: 30px">
               <div class="form-group " style="display: inline-block">
                 <label class="control-label requiredField" for="name4">
                   Name
@@ -46,7 +53,7 @@
      </span>
                 </label>
                 <!-- NEW feedback NAME -->
-                <input style=" width: 280px;" class="form-control" id="name4" name="name4" type="text" ng-model="newFeedback.name" />
+                <input style=" width: 377px;" class="form-control" id="name4" name="name4" type="text" ng-model="newFeedback.name" />
               </div>
 
 
@@ -56,7 +63,7 @@
                   <span class="asteriskField">
        *
       </span>
-                  <select ng-options="member as member.name for member in team track by member._id" style="width: 280px;" ng-model="newFeedback.member" class="select form-control" id="selClient" name="selClient">
+                  <select ng-options="member as member.name for member in team track by member._id" style="width: 377px;" ng-model="newFeedback.member" class="select form-control" id="selClient" name="selClient">
                   </select>
               </div>
 
@@ -106,14 +113,6 @@
   </div>
   <!-- /////////////////////////////////reviews -->
 
-  <div style="width: 50%; max-height: 600px; min-height: 600px; overflow-x: none; overflow-y: scroll; flex: 1; margin-right: -2%;">
-    <!-- EXISTING REVIEWS -->
-    <div class="reviews" ng-repeat="review in feedback | orderBy: '-'" style="padding:50px;">
-      <div class="review name"> {{ review.name }} </div>
-      <span ng-repeat="i in getNumber( review.stars ) track by $index"><img src="./styles/imgs/star.PNG"></span>
-      <div class="review review"> {{ review.review }}</div>
-    </div>
-  </div>
 
 
 

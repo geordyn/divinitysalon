@@ -75,10 +75,10 @@
 </div>
 
 
-
+<div style="margin: auto; width: 50%; margin-top: 20px; margin-bottom: 20px;">
         <button class="btn btn-custom btn-lg" ui-sref="scheduleAdmin" style="width: 12% padding: 0px; margin: 5px; font-size: 1em;">Add Appointment</button>
         <button data-toggle="modal" data-target="#addClientModal" class="btn btn-custom btn-lg" style="width: 12% padding: 0px; margin: 5px; font-size: 1em;">Add Client</button>
-
+</div>
 
         <div class="bootstrap-iso">
           <div class="container-fluid">
@@ -90,15 +90,18 @@
                   </label>
                   <input class="form-control" id="email1" name="email1" type="text" ng-model="searchName" />
                 </div>
-                <ul ng-repeat="client in clients | filter: searchName | orderBy: 'firstName'" style="list-style-type:none">
+                <ul ng-repeat="client in clients | filter: searchName | orderBy: 'firstName'" style="list-style-type:none; text-align: left">
 
-                  <li><span class="cName">{{ client.firstName }} {{ client.lastName }}</span></li>
+                  <li><span class="cName"><h3>{{ client.firstName }} {{ client.lastName }}</h3></span></li>
                   <ul style="list-style-type:none">
                     <li><span class="clientLabel"> Phone:</span> {{ client.phone }}</li>
                     <li><span class="clientLabel">Email:</span> {{ client.email }}</li>
                     <li>
-                      <button class="btn btn-custom btn-lg btn-block" style="width: 25%; height: 100%; padding: 2px; margin: 5px; color: white;" name="submit" type="submit" ng-click="deleteClient( client._id )">
+                      <button class="btn btn-custom btn-lg btn-block" style="width: 10%; height: 100%; padding: 2px; margin: 5px; display:inline-block; color: white;" name="submit" type="submit" ng-click="deleteClient( client._id )">
                         delete
+                      </button>
+                      <button class="btn btn-custom btn-lg btn-block" style="width: 10%; height: 100%; padding: 2px; margin: 5px; display: inline-block; color: white;" name="submit" type="submit" ng-click="">
+                        edit
                       </button>
                     </li>
 

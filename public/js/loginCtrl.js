@@ -5,6 +5,7 @@ angular.module('app')
       $scope.loginUser = function(username, password) {
         loginService.loginUser(username, password)
         .then(function(res){
+          $state.go('overviewAdmin');
         });
       };
 

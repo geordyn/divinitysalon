@@ -16,6 +16,7 @@ body {
   font-size: 1em;
   color: #2A2C43;
   font-family: 'Montserrat', sans-serif;
+  font-weight: lighter;
   overflow-x: hidden;
 }
 .navbar {
@@ -73,9 +74,10 @@ body {
 .jumbotron {
   position: relative;
   background: #000 url("./imgs/blondbundark.png") center center;
+  background-position: 0 550px;
   width: 100%;
-  height: 300px;
-  background-size: contain;
+  height: 500px;
+  background-size: cover;
   overflow: hidden;
   repeat: no-repeat;
 }
@@ -92,7 +94,8 @@ body {
 .products h1 {
   font-family: 'Pacifico', cursive;
   color: #2A2C43;
-  font-size: 4.5em;
+  font-size: 3.8em;
+  margin-bottom: 20px;
 }
 .products h2 {
   letter-spacing: 0.1em;
@@ -101,7 +104,7 @@ body {
 /*////////servcies*/
 
 .tab-content {
-  font-size: .6em;
+  font-size: 1em;
   font-family: 'Montserrat', sans-serif;
   text-align: left;
 
@@ -112,8 +115,8 @@ body {
 .tab-content h2 {
   font-family: 'Pacifico', cursive;
   margin: 0;
-  font-size: 2em;
-  padding: 5px;
+  font-size: 3em;
+  padding: 10px;
   padding-left: 0px;
 }
 
@@ -165,13 +168,36 @@ body {
   margin-bottom: 30px;
 }
 
-/*///////////////////overview*/
-#overview h3 {
+/*/////////contact*/
+.contactH3 {
   font-family: 'Pacifico', cursive;
+  font-size: 3em;
+  }
+.feedbackName {
+  font-family: 'Pacifico', cursive;
+  font-size: 2em;
 
 }
 
 
+/*///////////////////overview*/
+#overview h3 {
+  font-family: 'Pacifico', cursive;
+}
+
+/*///////////clientsAdmin*/
+.cName {
+  font-family: 'Pacifico', cursive;
+}
+
+#loginNav h3{
+  font-family: 'Pacifico', cursive;
+  color: #2A2C43;
+}
+#loginNav a {
+  font-family: 'Montserrat', sans-serif;
+  color: #6f9e95;
+}
 /*STAR RATING CSS*/
 
 .starRating:not(old) {
@@ -222,11 +248,11 @@ span.text-content {
   padding: 10px;
   cursor: pointer;
   display: table;
-  height: 300px;
+  height: 500px;
   left: 0px;
   position: absolute;
   top: 0;
-  width: 310px;
+  width: 500px;
   opacity: 0;
   -webkit-transition: opacity 500ms;
   -moz-transition: opacity 500ms;
@@ -237,6 +263,7 @@ span.text-content span {
   display: table-cell;
   text-align: center;
   vertical-align: middle;
+
 }
 .img-list:hover span.text-content {
   opacity: 1;

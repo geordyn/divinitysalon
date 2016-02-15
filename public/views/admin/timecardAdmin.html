@@ -1,11 +1,12 @@
 <login-nav></login-nav>
 
-<center>
-  <div class="clientList" ng-repeat="member in team track by member._id" style="display: inline-block; max-width: 100vw; word-wrap: break-word; padding: 20px;">
+
+  <div class="clientList" ng-repeat="member in team track by member._id" style="display: inline-block; max-width: 100vw; word-wrap: break-word; padding: 20px; margin: auto;">
 
   <div class="clientDiv">
 
     <img ng-src="{{ member.img }}" height="200px" width="210px" style="margin: 5px">
+    <h3>{{member.name}}</h3>
 
     <!-- <center>
       <button class="btn btn-custom btn-lg btn-block" style="width: 30%; height: 100%; padding: 2px; margin: 5px;" name="submit" type="submit" ng-click="deleteMember( member._id )">
@@ -20,7 +21,7 @@
       <button class="btn btn-custom btn-lg btn-block" style="height: 100%; padding: 2px; margin: 5px;" name="submit" type="submit" ng-click="clockOut( member )">
         Clock Out
       </button>
-    </center>
+
 
   </div>
 
