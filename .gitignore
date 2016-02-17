@@ -1,3 +1,4 @@
+config.js
 *~
 *.7z
 _build/
@@ -31,4 +32,3 @@ __pycache__/
 tags
 TAGS
 *.tar
-.config.js
