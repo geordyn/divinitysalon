@@ -31,3 +31,4 @@ __pycache__/
 tags
 TAGS
 *.tar
+.config

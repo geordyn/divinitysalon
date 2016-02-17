@@ -15,19 +15,20 @@ var clientCtrl = require('./controllers/clientCtrl.js');
 var appointmentCtrl = require('./controllers/appointmentCtrl.js');
 var feedbackCtrl = require('./controllers/feedbackCtrl.js');
 var clockCtrl = require('./controllers/clockCtrl.js');
+var config = require('./.config.js');
 
 
 
 /////
 var app = express();
 
-var port = process.argv[2] || 2000;
+var port = config.port;
 
 app.use(bodyParser.json());
 app.use(express.static(__dirname + "/../public"));
 
 app.use(session({
-    secret: 'ultimate-bro-jan-sucks-for-real-but-is-kewl-af',
+    secret: config.secret,
     resave: true,
     saveUninitialized: true
   }));
