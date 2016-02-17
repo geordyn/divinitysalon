@@ -15,7 +15,7 @@ var clientCtrl = require('./controllers/clientCtrl.js');
 var appointmentCtrl = require('./controllers/appointmentCtrl.js');
 var feedbackCtrl = require('./controllers/feedbackCtrl.js');
 var clockCtrl = require('./controllers/clockCtrl.js');
-var config = require('./.config.js');
+var config = require('./config.js');
 
 
 
