@@ -1,4 +1,4 @@
 module.exports ={
 port: 2222,
-secret: 'ultimate-bro-jan-sucks-for-real-but-is-kewl-af'
+secret: 'ultimate-brjfkldjkfjdkfjkd8943758437eal-but-is-kewl-af'
 };
