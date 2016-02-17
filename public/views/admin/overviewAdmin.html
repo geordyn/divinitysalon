@@ -22,7 +22,7 @@
         <h3 class>{{member.name}}</h3>
         Total Hours: {{ member.totalHrs }}
         <br/>
-        <span ng-repeat="i in getNumber( member.overallRating ) track by $index"><img src="/styles/imgs/star.PNG" height="10px" width="10px"></span>
+        <span ng-repeat="i in getNumber( member.overallRating ) track by $index"><img src="/styles/imgs/star.png" height="10px" width="10px"></span>
 
 
         <button class="btn btn-custom btn-lg btn-block" style="height: 100%; padding: 2px; margin: 5px;" name="submit" type="submit" ng-click="deleteMember( member._id )">

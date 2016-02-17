@@ -6,7 +6,7 @@
     <div style="max-height: 600px; min-height: 600px; overflow-x: none; overflow-y: scroll; flex: 1; margin-right: -2%;">
       <!-- EXISTING REVIEWS -->
       <div class="reviews" ng-repeat="review in feedback | orderBy: '-'" style="padding:10px; text-align: left">
-        <span ng-repeat="i in getNumber( review.stars ) track by $index"><img src="./styles/imgs/star.PNG"></span>
+        <span ng-repeat="i in getNumber( review.stars ) track by $index"><img src="./styles/imgs/star.png"></span>
         <div class="review name"> Client: <strong class="feedbackName">{{review.name}}</strong>  <br/>   Stylist: <strong class="feedbackName">{{ review.employeeName }}</strong> </div>
         <div class="review review"> {{ review.review }}</div>
       </div>
