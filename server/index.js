@@ -37,7 +37,7 @@ app.use(passport.session());
 
 
 
-var mongoUri = 'mongodb://geordyn:0ceanwater@ds011258.mongolab.com:11258/divinitysalon';
+var mongoUri = config.mongoUri;
 mongoose.connect(mongoUri); //default port number to connect to mongoose
 //second part says once you open connection one time, it'll consolelog
 //you can put url in 'open' area
